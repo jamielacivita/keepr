@@ -23,7 +23,8 @@ function Validate(req, res, next) {
 }
 
 function logger(req, res, next) {
-	console.log('INCOMING REQUEST', req.url)
+    console.log("In function logger in dev-server.")
+	console.log('--INCOMING REQUEST', req.url)
 	next()
 }
 
@@ -55,9 +56,5 @@ io.on('connection', function(socket){
     })
 
 })
-
-
-
-
 
 export default server

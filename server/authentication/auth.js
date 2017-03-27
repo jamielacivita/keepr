@@ -1,7 +1,10 @@
 let router = require('express').Router()
 let Users = require('../models/user')
 
+console.log("In auth.js")
+
 router.post('/register', (req, res) => {
+  console.log("In auth.js -- router.post")
   Users.create(req.body)
     .then((user) => {
       req.session.uid = user._id

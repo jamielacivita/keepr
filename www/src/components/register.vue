@@ -1,7 +1,7 @@
 <template>
   <div class="register">
     <h1>Register Page</h1>
-
+    <button @click.prevent="register()">Test Reg Func.</button>
 
 
   </div>
@@ -14,7 +14,16 @@ export default {
     return {
 
     }
+  },
+methods: 
+{
+  register()
+  {
+  console.debug("inside the register method.")
+  this.$root.store.actions.register()
   }
+}
+
 }
 </script>
 

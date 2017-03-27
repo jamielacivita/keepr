@@ -1,2 +1,58 @@
+ToDos
+=====
+Create Remote Repository
 Should be able to display public keeper elements without logging in?
+Need forgot password functionality?
+Where do you go if you click "I'll signe up later, just browsing for now."
+OQ: What form elements are needed for regristration?
+
+--------------------------------------------------------------------------------------------------------
+OQ: What is the workflow process for regristration?
+1. User navigates to regristration page.
+2. User fills out regristration form.
+    name: { type: String, required: true },
+    email: { type: String, required: true, unique: true, dropDups: true },
+    password: { type: String, required: true }
+3. User submits the form (prevent default)
+    <button type="submit" name="action" @click.prevent="logIn(admin.email, pWord)">Submit</button>
+4. A coponent local method is run to create a user object and then run a method in the store.
+
+    ...sample code needs to be edited...
+    methods: {
+    logIn(email, pw) 
+    {
+    var new_user = {
+    name: name,
+    email: email,
+    password: pw
+    }
+    this.$root.$data.store.actions.register(new_user)
+
+    this is the register method from kisok.
+    --------------------------------------
+            register(body) {
+            .post('register', body)  // <--- I believe this is a post to :3000/register with {body} 
+                .then(res => {
+                    //the next two lines are setting the active state in the local store.
+                    state.user = res.data.data
+                }).catch(handleError)
+        },
+
+
+4. ?The information is sent to the server (port 3000)?
+4. A post is made to the database to store the user information.
+5. User is taken to the login page to actually sign in.
+6. What happens if you try and log in with the same info twice?
+7. What happens if you try to login as an existing user but with a different password?
+8. What happens if you have the correct user name but incorrect password?
+9. OQ: How do we verify the user is logged in with full privlages?
+------------------------------------------------------------------------------------------------------------
+
+
+What are we using axios for? (Need to review how this works, exactly.)
+
+
+
+
+
 

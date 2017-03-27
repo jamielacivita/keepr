@@ -72,7 +72,16 @@ export default {
   // ALL DATA LIVES IN THE STATE
   state,
   // ACTIONS ARE RESPONSIBLE FOR MANAGING ALL ASYNC REQUESTS
-  actions: {
+  actions: 
+  {
+  register(body) {
+    console.log("In the register method in the store.")
+  // .post('register', body)  // <--- I believe this is a post to :3000/register with {body} 
+  // .then(res => {
+  // //the next two lines are setting the active state in the local store.
+  // state.user = res.data.data
+  //   }).catch(handleError)
+    }
   }
 
 }
