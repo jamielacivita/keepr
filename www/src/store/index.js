@@ -102,6 +102,44 @@ export default {
   console.log("Res: ",res)
    }).catch(handleError)
     },
+
+  createKeep() {
+    console.log("In the createKeep method in the store.")
+
+    //list elements of the keep. 
+    let keepObject = {};
+
+    let title = "Borg-Warner Trophy";
+    let imgUrl = "https://en.wikipedia.org/wiki/Borg-Warner_Trophy#/media/File:Borg-Warner_Trophy_2008.jpg";
+    let description = "A trophy.";
+    let body = "The Borg-Warner Trophy is the trophy presented to the winner of the Indianapolis 500. It is named for and was commissioned by automotive supplier BorgWarner. It is permanently housed at the Indianapolis Motor Speedway Museum in Speedway, Indiana.";
+    let publicKeep = true;
+
+    keepObject.title = title;
+    keepObject.imgUrl = imgUrl;
+    keepObject.description = description;
+    keepObject.body = body;
+    keepObject.public = publicKeep;
+
+  api.post('keeps', keepObject)   
+  .then(res => {
+
+  //ToDo: have to update the store after posting somehow. 
+  console.log("Res: ",res)
+   }).catch(handleError)
+    },
+
+  getKeeps() {
+  console.log("In the get Keeps method in the store.")
+  api.get('keeps')   
+  .then(res => {
+  console.log("Res from Get Keeps: ", res.data.data)
+  console.log("Current state of store: ", state.keeps)
+  console.log("updating store state.")
+  state.keeps = res.data.data;
+  console.log("New state of store: ", state.keeps)
+   }).catch(handleError)
+    },
   }
 }
-
+ 

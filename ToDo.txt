@@ -49,9 +49,60 @@ mongo ds056789.mlab.com:56789/codeworks -u student -p CodeWorksStudent
 > use codeworks // switches db.to codeworks database.
 db.users.find() --> produces a list of users.
 db.keeps.find() --> produces a list of keeps.
+db.vaults.find() --> produces a list of vaults.
 show collections --> gives a list of collections.
 
+======================
+Server Working Diagram
+======================
+program starts with index.js 
+that gets the sever listening.
+the server is created in dev-server.js
+    the request is logged.
+    the middleware stack is traversed.
+If the route is / or /api is a split.
+if you go the /api route you hit the router in models/index.js
+this gets the route information from config.constants
 
+Pulling keep items by id:
+-------------------------
+Example: localhost:3000/api/keeps/58d93db0836d16377666288f
+
+========================================
+Goal: Ability to Post Keeps with postman
+========================================
+
+localhost:3000/api/keeps
+------------------------
+{
+"title": "Kryptos.",
+"imgUrl" : "https://upload.wikimedia.org/wikipedia/commons/e/e0/Kryptos_sculptor.jpg",
+"description": "A mystery test object. JWTO.",
+"body":"A mystery: Kryptos is a sculpture by the American artist Jim Sanborn that is located on the grounds of the Central Intelligence Agency (CIA) in Langley, Virginia. Since its dedication on November 3, 1990, there has been much speculation about the meaning of the four encrypted messages it bears. Of the four messages, the first three have been solved, while the fourth message remains as one of the most famous unsolved codes in the world.",
+"public": true,
+"viewCount": 0,
+"shareCount": 0,
+"keepCount": 0
+}
+
+========================================
+Goal: Ability to Read Keeps with postman
+========================================
+localhost:3000/api/keeps/58d986bbaad25612ac73a0a1
+
+=====================================================
+Goal: Ability to create a hardcoded post on www side.
+=====================================================
+1. Need a create page. (create the page in components).
+1.5 : update router x2.
+2. Need a button on that page 
+3. Button needs a local method
+4. Local method need remote api call. 
+
+
+=====================================================
+Goal: Ability to pull public keeps into the store.
+=====================================================
 
 
 

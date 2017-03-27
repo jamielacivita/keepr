@@ -16,7 +16,7 @@ const models = {
   keep: {
     name: 'Keep',
     endpoint: 'keeps',
-    preventDefaultApi: false,
+    preventDefaultApi: false,  //this is what I changed to get access to public keep stuff. 
     useCustomRoutes: true
   }
 
