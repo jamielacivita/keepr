@@ -37,7 +37,7 @@ app.use('*', cors(corsOptions))
 app.use('/', Auth)
 
 // LOCKS API TO REQUIRE USER AUTH
-app.use(Validate)
+// app.use(Validate)
 app.use('/api', api)
 app.use('/', defaultErrorHandler)
 
@@ -54,7 +54,6 @@ io.on('connection', function(socket){
     socket.on('update', (d)=>{
         console.log(d)  
     })
-
 })
 
 export default server

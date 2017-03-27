@@ -6,6 +6,12 @@ let api = axios.create({
   withCredentials: true
 })
 
+let base = axios.create({
+  baseURL: 'http://localhost:3000/',
+  timeout: 2000,
+  withCredentials: true
+})
+
 // REGISTER ALL DATA HERE
 let state = {
   user: {},
@@ -74,15 +80,28 @@ export default {
   // ACTIONS ARE RESPONSIBLE FOR MANAGING ALL ASYNC REQUESTS
   actions: 
   {
-  register(body) {
+  register() {
     console.log("In the register method in the store.")
-  // .post('register', body)  // <--- I believe this is a post to :3000/register with {body} 
-  // .then(res => {
+    let body = {"name":"Jamie Lacivita","email":"JCLacivita@gmail.com","password":"sunfish" }
+  base.post('register', body)  // <--- I believe this is a post to :3000/register with {body} 
+  .then(res => {
   // //the next two lines are setting the active state in the local store.
-  // state.user = res.data.data
-  //   }).catch(handleError)
-    }
-  }
+  state.user = res.data.data
+  console.log("Error Code: ",res.data.error.code)
+  console.log("state.user: ", state.user)
+   }).catch(handleError)
+    },
 
+  login() {
+    console.log("In the login method in the store.")
+    let body = {"name":"Jamie Lacivita","email":"JCLacivita@gmail.com","password":"sunfish" }
+  base.post('login', body)  // <--- I believe this is a post to :3000/register with {body} 
+  .then(res => {
+  // //the next two lines are setting the active state in the local store.
+  state.user = res.data.data
+  console.log("Res: ",res)
+   }).catch(handleError)
+    },
+  }
 }
 

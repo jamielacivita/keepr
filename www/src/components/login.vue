@@ -1,6 +1,7 @@
 <template>
   <div class="login">
     <h1>login Page</h1>
+        <button @click.prevent="login()">Test Login Func.</button>
 
   </div>
 </template>
@@ -12,7 +13,15 @@ export default {
     return {
 
     }
+  },
+  methods: 
+{
+  login()
+  {
+  console.debug("inside the login method.")
+  this.$root.store.actions.login()
   }
+}
 }
 </script>
 

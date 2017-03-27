@@ -12,7 +12,14 @@ const models = {
     endpoint: 'users',
     preventDefaultApi: true,
     useCustomRoutes: true
+  },
+  keep: {
+    name: 'Keep',
+    endpoint: 'keeps',
+    preventDefaultApi: false,
+    useCustomRoutes: true
   }
+
 }
 
 

@@ -1,9 +1,9 @@
 ToDos
 =====
-Create Remote Repository
-Should be able to display public keeper elements without logging in?
-Need forgot password functionality?
-Where do you go if you click "I'll signe up later, just browsing for now."
+[ ] Create Remote Repository
+[ ] Should be able to display public keeper elements without logging in?
+[ ] Need forgot password functionality?
+[ ] Where do you go if you click "I'll signe up later, just browsing for now."
 OQ: What form elements are needed for regristration?
 
 --------------------------------------------------------------------------------------------------------
@@ -15,41 +15,54 @@ OQ: What is the workflow process for regristration?
     password: { type: String, required: true }
 3. User submits the form (prevent default)
     <button type="submit" name="action" @click.prevent="logIn(admin.email, pWord)">Submit</button>
-4. A coponent local method is run to create a user object and then run a method in the store.
-
-    ...sample code needs to be edited...
-    methods: {
-    logIn(email, pw) 
-    {
-    var new_user = {
-    name: name,
-    email: email,
-    password: pw
-    }
-    this.$root.$data.store.actions.register(new_user)
-
-    this is the register method from kisok.
-    --------------------------------------
-            register(body) {
-            .post('register', body)  // <--- I believe this is a post to :3000/register with {body} 
-                .then(res => {
-                    //the next two lines are setting the active state in the local store.
-                    state.user = res.data.data
-                }).catch(handleError)
-        },
+4. A coponent local method is run to create a user object from the form and then run a method in the store.
 
 
-4. ?The information is sent to the server (port 3000)?
-4. A post is made to the database to store the user information.
+5. In the store the method makes an axios post (to the base URL) is made to submit the body to the database. 
+
+ToDo : need to to in-form validation.
+ToDo : need to handle error condition 11000 (duplicate key in DB - happens when user submits same information twice.)
+
 5. User is taken to the login page to actually sign in.
-6. What happens if you try and log in with the same info twice?
-7. What happens if you try to login as an existing user but with a different password?
-8. What happens if you have the correct user name but incorrect password?
-9. OQ: How do we verify the user is logged in with full privlages?
+    [] display a message indicating that regristration was successful ... delay ... to login page.
+
+OQ: What happens if you try to register as an existing user but with a different password?
+
+OQ: How do we verify the user is logged in with full privlages?
 ------------------------------------------------------------------------------------------------------------
 
 
 What are we using axios for? (Need to review how this works, exactly.)
+
+OQ: How do we delete users?
+
+
+
+
+=======================================
+Goal: Users can see all public keeps.
+=======================================
+Connecting to Database via command line
+---------------------------------------
+At terminal: 
+mongo ds056789.mlab.com:56789/codeworks -u student -p CodeWorksStudent
+> use codeworks // switches db.to codeworks database.
+db.users.find() --> produces a list of users.
+db.keeps.find() --> produces a list of keeps.
+show collections --> gives a list of collections.
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
