@@ -1,15 +1,13 @@
 <template>
-  <div class="register">
-    <h1>Register Page</h1>
-
-
+  <div class="login">
+    <h1>login Page</h1>
 
   </div>
 </template>
 
 <script>
 export default {
-  name: 'register',
+  name: 'login',
   data () {
     return {
 
