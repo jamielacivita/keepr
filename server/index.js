@@ -15,6 +15,6 @@ connection.on('error', console.error.bind(console, 'connection error:'));
 
 connection.once('open', function () {
 	server.listen(process.env.PORT, function () {
-		console.log(`Running on port: ${process.env.PORT}`);
+		console.log(`Server is running comfortabally on port: ${process.env.PORT}`);
 	})
 });
