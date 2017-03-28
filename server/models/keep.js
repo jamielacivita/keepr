@@ -2,6 +2,9 @@ let mongoose = require('mongoose')
 let Schema = mongoose.Schema
 let ObjectId = Schema.Types.ObjectId
 
+//stuff I've added
+import user from './user'
+
 
 // Old Schema
 // let schema = new Schema({
@@ -25,6 +28,7 @@ let schema = new Schema({
   timesVaulted: { type: Number, default: 0 },
   // Relations
   // userId: { type: ObjectId, ref: models.user.name, required: true },
+  userId: { type: ObjectId, ref: user.name, required: true },
 
 })
 

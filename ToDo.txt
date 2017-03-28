@@ -1,6 +1,8 @@
 ToDos
 =====
 [ ] Ability to create Keeps using form.
+    - if so document. 
+[ ] on submission, form values clear. 
 [ ] Ability to create Vaults using form.
 [ ] Change title of create page.
 
@@ -15,8 +17,11 @@ ToDos
 [ ] Should be able to display public keeper elements without logging in?
 [ ] Need forgot password functionality?
 [ ] Where do you go if you click "I'll signe up later, just browsing for now."
-[  ] need to handle error condition 11000 (duplicate key in DB - happens when user submits same information twice.)
-
+[ ] need to handle error condition 11000 (duplicate key in DB - happens when user submits same information twice.)
+[ ] Figure out why you cannot use console log to examine mongoose on command line.
+----After Lunch----
+[X] Remove Hardcoding of Id.
+    - verify it is acutally reading data off the other table. 
 --------------------------------------------------------------------------------------------------------
 OQ: What is the workflow process for regristration?
 1. User navigates to regristration page.
@@ -140,7 +145,3 @@ Switched over to my own DB
 used configure/env.js to do so.
 
 OQ: How to use monogo to log into this db remotely?
-
-
-
-
