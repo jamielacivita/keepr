@@ -5,6 +5,8 @@
 <!--<h3>{{$root.store.state.keeps}}</h3>-->
 
 <ul id="example-2" class = "fb">
+
+
 <li v-for="(item, index) in $root.store.state.keeps">
 <div class="card" style="width: 320px">
 <div class="cardOutline">
@@ -13,23 +15,14 @@
     <h4 class="card-title">{{item.title}}</h4>
     <p class="card-text">{{item.tags}}</p>
     <!--<a href="#" class="btn btn-primary">Keep</a>-->
-    <a href="#" class="btn btn-primary">SomeThing</a>
+    <a v-on:click="showId(item._id)" class="btn btn-primary">Vault Me.</a>
     <!--<a href="#" class="btn btn-primary">Else</a>-->
   </div>
 </div>
 </div>
 </li>
+
 </ul>
-    
-
-
-
-
-
-
-
-
-
   </div>
 </template>
 
@@ -38,7 +31,7 @@ export default {
   name: 'readKeeps',
   data () {
     return {
-
+      showKeepList : false
     }
   },
 methods: 
@@ -46,6 +39,13 @@ methods:
   getKeeps()
   {
   this.$root.store.actions.getKeeps()
+  },
+  showId(keepId)
+  {
+  console.debug("In showId with: ", keepId)
+  //need to get a list of logged in users vaults.
+  //need to create a modal with users' vaults.
+
   }
 },
 mounted: function()
