@@ -121,8 +121,12 @@ export default {
     },
 
   createKeep(obj_keep) {
+<<<<<<< HEAD
   console.debug("In the createKeep method in the store with: ", obj_keep)
   let op="huh";
+=======
+    console.log("In the createKeep method in the store.")
+>>>>>>> day2
   api.post('keeps', obj_keep)   
   .then(res => {
   //ToDo: Have to update the store after posting somehow.

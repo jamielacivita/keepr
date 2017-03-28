@@ -6,13 +6,6 @@
 
 <div class="frame">
 
-<ul class="nav nav-tabs">
-  <li class="active"><a data-toggle="tab" href="#home" class="tab_class">Create Keep</a></li>
-  <li><a data-toggle="tab" href="#menu1" class="tab_class">Create Vault</a></li>
-  <!--<li><a data-toggle="tab" href="#menu2" class="tab_class">Just Visiting</a></li>-->
-</ul>
-
-
 <div class="tab-content">
   <div id="home" class="tab-pane fade in active">
     <form>
@@ -31,13 +24,32 @@
       <!--name: <input v-model="name" placeholder="name"><br> -->
       <h3> Vault Creation form goes here </h3>
       </form>
-  </div>
-  <div id="menu2" class="tab-pane fade">
-    <button>Its true, I'm just visting here.</button>
-  </div>
-</div>
 
-</div> <!--end of frame-->
+<div class="tab-content">
+  <div id="home" class="tab-pane fade in active">
+    <form>
+      <!--name: <input v-model="name" placeholder="name"><br> -->
+      <input class="inputField" v-model="title" placeholder="  title"><br> 
+      <input class="inputField" v-model="imageUrl" placeholder="  image Url"><br>
+      <input class="inputField" v-model="articleLink" placeholder="  articleLink"><br>
+      <input class="inputField" v-model="tags" placeholder="  tags"><br>
+
+      <button type="submit" name="action" @click.prevent="createKeep()">Submit</button>
+    </form>
+  </div>
+  <div id="menu1" class="tab-pane fade">
+    <form>
+      <!--name: <input v-model="name" placeholder="name"><br> -->
+      <input class="inputField" v-model="name" placeholder="  name"><br> 
+      <input class="inputField" v-model="email" placeholder="  e-mail"><br> 
+      <input class="inputField" v-model="password" placeholder="  password"><br>
+      <button type="submit" name="action" @click.prevent="register()">Submit</button>
+    </form>
+
+
+<!--junk ends here-->
+
+
 
   </div>
 </template>
@@ -50,23 +62,26 @@ export default {
       title: '',
       imageUrl: '',
       articleLink: '',
+
       tags: '',
+
     }
   },
 methods: 
 {
   createKeep()
   {
-  console.debug("inside the create Keep method.")
-  let obj_keep = {}
 
-  obj_keep.title = this.title;
-  obj_keep.imageUrl = this.imageUrl;
-  obj_keep.articleLink = this.articleLink;
-  obj_keep.tags = this.tags;
-  obj_keep.userId = "58d954288a8e4d0e6c4f19ad";
 
-console.debug(obj_keep)
+  console.debug("inside the create Keep method on the local page.")
+
+let obj_keep = {}
+obj_keep.title = this.title;
+obj_keep.imageUrl = this.imageUrl;
+obj_keep.articleLink = this.articleLink;
+obj_keep.tags = this.tags;
+obj_keep.userId = "58dabd3c344e520d18cbfa3f";  //todo remove hardcoding.
+
 this.$root.store.actions.createKeep(obj_keep)
 },
 

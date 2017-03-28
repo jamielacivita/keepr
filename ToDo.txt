@@ -43,9 +43,8 @@ OQ: How do we verify the user is logged in with full privlages?
 OQ: What are we using axios for? (Need to review how this works, exactly.)
 OQ: How do we delete users?
 
-=======================================
-Goal: Users can see all public keeps.
-=======================================
+
+
 Connecting to Database via command line
 ---------------------------------------
 At terminal: 
@@ -108,6 +107,7 @@ Goal: Ability to pull public keeps into the store.
 =====================================================
 Done.
 
+<<<<<<< HEAD
 ===Revised Schemas===
 
 // VAULT SCHEMA
@@ -135,6 +135,12 @@ let schema = new Schema({
 
 
 // User schema is unchanged.
+=======
+Switched over to my own DB 
+used configure/env.js to do so.
+
+OQ: How to use monogo to log into this db remotely?
+
 
 
 
