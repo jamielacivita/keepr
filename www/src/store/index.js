@@ -1,4 +1,5 @@
 import axios from 'axios'
+import router from '../router'
 
 let api = axios.create({
   baseURL: 'http://localhost:3000/api/',
@@ -14,6 +15,7 @@ let base = axios.create({
 
 // REGISTER ALL DATA HERE
 let state = {
+  loginMessage : 'No one is logged in! - JWTO', 
   user: {},
   myVaults: {},
   myKeeps: {},
@@ -81,7 +83,7 @@ export default {
   actions: 
   {
   register(register_object) {
-    console.log("In the register method in the store.")
+    console.debug("In the register method in the store.")
   base.post('register', register_object)   
   .then(res => {
   //need to do some error checking for improper regristration. 
@@ -99,8 +101,22 @@ export default {
   .then(res => {
   // //the next two lines are setting the active state in the local store.
   console.debug(res)
+  //Was the login successful?
+  console.debug("res.data.error", res.data.error)
+  if (res.data.error == 'Invalid Email or Password')
+  {
+  console.debug("unsuccessful login")
+    //set improper login flag -- used to display message. 
+    state.loginMessage = 'Invalid email or password.'
+  }
+  else
+  {
+  console.debug("succesfully login.")
   state.user = res.data.data
   console.log("Res.data.data: ", res.data.data)
+  //send user to keeps page.
+  router.push({ path: 'readKeeps' })
+  }
    }).catch(handleError)
     },
 

@@ -3,7 +3,7 @@ ToDos
 [ ] Users register and login - roughly done
 [ ] Users automatically login on page refresh (how to do?)
     if no user in store - direct to login page.
-    
+
 [ ] Users can create and manage their keeps
 [ ] Users can see all public keeps.
 [ ] Users can create vaults to store their keeps
@@ -118,6 +118,8 @@ Goal: Ability to create a hardcoded post on www side.
 =====================================================
 Goal: Ability to pull public keeps into the store.
 =====================================================
+Done.
+
 
 
 

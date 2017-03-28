@@ -18,6 +18,12 @@ const models = {
     endpoint: 'keeps',
     preventDefaultApi: false,  //this is what I changed to get access to public keep stuff. 
     useCustomRoutes: true
+  },
+  vault: {
+    name: 'Vault',
+    endpoint: 'vaults',
+    preventDefaultApi: false,  //this is what I changed to get access to public keep stuff. 
+    useCustomRoutes: true
   }
 
 }

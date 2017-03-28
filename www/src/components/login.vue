@@ -5,8 +5,8 @@
 
     <form>
       <!--name: <input v-model="name" placeholder="name"><br> -->
-      jclacivita@gmail.com: <input v-model="email" placeholder="e-mail"><br> 
-      sunfish: <input v-model="password" placeholder="password"><br>
+      email: <input v-model="email" placeholder="e-mail"><br> 
+      password: <input v-model="password" placeholder="password"><br>
       <button type="submit" name="action" @click.prevent="login()">Submit</button>
     </form>
 
