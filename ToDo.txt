@@ -1,14 +1,7 @@
 ToDos
 =====
-[ ] Ability to create Vaults using form.
-[ ] Change title of create page.
-
-
-
-[ ] Users register and login - roughly done verify.
-[ ] Need in form validation for login
-[ ] Users can create and manage their keeps
 [ ] Users can see all public keeps.
+[ ] Users can create and manage their keeps
 
 [ ] Users can create vaults to store their keeps
 [ ] Should be able to display public keeper elements without logging in?
@@ -16,12 +9,19 @@ ToDos
 [ ] Where do you go if you click "I'll signe up later, just browsing for now."
 [ ] need to handle error condition 11000 (duplicate key in DB - happens when user submits same information twice.)
 [ ] Figure out why you cannot use console log to examine mongoose on command line.
+[ ] Need in form validation for login
+----Lower Priority Stuff To Do----
+[ ] Change title of create page.
+[ ] Users register and login - roughly done verify.
+
+
 ----After Lunch----
 [X] Remove Hardcoding of Id.
     - verify it is acutally reading data off the other table. 
 [ ] Ability to create Keeps using form.
     - if so document. 
 [ ] on submission, form values clear. 
+[ ] Ability to create Vaults using form.
 --------------------------------------------------------------------------------------------------------
 OQ: What is the workflow process for regristration?
 1. User navigates to regristration page.
