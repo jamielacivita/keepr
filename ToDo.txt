@@ -1,6 +1,12 @@
 ToDos
 =====
-[ ] Create Remote Repository
+[ ] Users register and login - roughly done
+[ ] Users automatically login on page refresh (how to do?)
+    if no user in store - direct to login page.
+    
+[ ] Users can create and manage their keeps
+[ ] Users can see all public keeps.
+[ ] Users can create vaults to store their keeps
 [ ] Should be able to display public keeper elements without logging in?
 [ ] Need forgot password functionality?
 [ ] Where do you go if you click "I'll signe up later, just browsing for now."
@@ -16,6 +22,15 @@ OQ: What is the workflow process for regristration?
 3. User submits the form (prevent default)
     <button type="submit" name="action" @click.prevent="logIn(admin.email, pWord)">Submit</button>
 4. A coponent local method is run to create a user object from the form and then run a method in the store.
+
+<form>
+    name: <input v-model="name" placeholder="name"><br>
+    email: <input v-model="email" placeholder="e-mail"><br>
+    password: <input v-model="password" placeholder="password"><br>
+  <input type="submit">
+</form>
+
+
 
 
 5. In the store the method makes an axios post (to the base URL) is made to submit the body to the database. 

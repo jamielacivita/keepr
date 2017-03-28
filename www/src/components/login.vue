@@ -1,7 +1,14 @@
 <template>
   <div class="login">
     <h1>login Page</h1>
-        <button @click.prevent="login()">Test Login Func.</button>
+        <!--<button @click.prevent="login()">Test Login Func.</button>-->
+
+    <form>
+      <!--name: <input v-model="name" placeholder="name"><br> -->
+      jclacivita@gmail.com: <input v-model="email" placeholder="e-mail"><br> 
+      sunfish: <input v-model="password" placeholder="password"><br>
+      <button type="submit" name="action" @click.prevent="login()">Submit</button>
+    </form>
 
   </div>
 </template>
@@ -11,7 +18,8 @@ export default {
   name: 'login',
   data () {
     return {
-
+        email: '',
+        password : ''
     }
   },
   methods: 
@@ -19,7 +27,12 @@ export default {
   login()
   {
   console.debug("inside the login method.")
-  this.$root.store.actions.login()
+
+        let login_object = {}
+        login_object.email = this.email;
+        login_object.password = this.password;
+
+  this.$root.store.actions.login(login_object)
   }
 }
 }

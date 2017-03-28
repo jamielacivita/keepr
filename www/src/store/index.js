@@ -80,26 +80,27 @@ export default {
   // ACTIONS ARE RESPONSIBLE FOR MANAGING ALL ASYNC REQUESTS
   actions: 
   {
-  register() {
+  register(register_object) {
     console.log("In the register method in the store.")
-    let body = {"name":"Jamie Lacivita","email":"JCLacivita@gmail.com","password":"sunfish" }
-  base.post('register', body)  // <--- I believe this is a post to :3000/register with {body} 
+  base.post('register', register_object)   
   .then(res => {
-  // //the next two lines are setting the active state in the local store.
+  //need to do some error checking for improper regristration. 
+  //the next two lines are setting the active state in the local store.
   state.user = res.data.data
   console.log("Error Code: ",res.data.error.code)
   console.log("state.user: ", state.user)
    }).catch(handleError)
     },
 
-  login() {
+  login(login_object) {
     console.log("In the login method in the store.")
-    let body = {"name":"Jamie Lacivita","email":"JCLacivita@gmail.com","password":"sunfish" }
-  base.post('login', body)  // <--- I believe this is a post to :3000/register with {body} 
+
+  base.post('login', login_object)  // <--- I believe this is a post to :3000/register with {body} 
   .then(res => {
   // //the next two lines are setting the active state in the local store.
+  console.debug(res)
   state.user = res.data.data
-  console.log("Res: ",res)
+  console.log("Res.data.data: ", res.data.data)
    }).catch(handleError)
     },
 
