@@ -120,28 +120,13 @@ export default {
    }).catch(handleError)
     },
 
-  createKeep() {
-    console.log("In the createKeep method in the store.")
-
-    //list elements of the keep. 
-    let keepObject = {};
-
-    let title = "Borg-Warner Trophy";
-    let imgUrl = "https://en.wikipedia.org/wiki/Borg-Warner_Trophy#/media/File:Borg-Warner_Trophy_2008.jpg";
-    let description = "A trophy.";
-    let body = "The Borg-Warner Trophy is the trophy presented to the winner of the Indianapolis 500. It is named for and was commissioned by automotive supplier BorgWarner. It is permanently housed at the Indianapolis Motor Speedway Museum in Speedway, Indiana.";
-    let publicKeep = true;
-
-    keepObject.title = title;
-    keepObject.imgUrl = imgUrl;
-    keepObject.description = description;
-    keepObject.body = body;
-    keepObject.public = publicKeep;
-
-  api.post('keeps', keepObject)   
+  createKeep(obj_keep) {
+  console.debug("In the createKeep method in the store with: ", obj_keep)
+  let op="huh";
+  api.post('keeps', obj_keep)   
   .then(res => {
-
-  //ToDo: have to update the store after posting somehow. 
+  //ToDo: Have to update the store after posting somehow.
+  //ToDo: Have to indicate that the keep was successfully created.  
   console.log("Res: ",res)
    }).catch(handleError)
     },
