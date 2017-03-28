@@ -2,6 +2,10 @@
   <div id="app">
     <h3>{{$root.store.state.user.email}}</h3>
     <img src="./assets/logo.jpg">
+
+<router-link v-bind:to="'CreateKeep'">CreateKeep</router-link>
+<router-link v-bind:to="'ReadKeeps'">ReadKeep</router-link>
+
     <div v-if="!$root.store.state.user.email">
       <h1>{{$root.store.state.loginMessage}}</h1>
 

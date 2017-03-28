@@ -12,9 +12,9 @@
   <div class="card-block">
     <h4 class="card-title">{{item.title}}</h4>
     <p class="card-text">{{item.tags}}</p>
-    <a href="#" class="btn btn-primary">Keep</a>
+    <!--<a href="#" class="btn btn-primary">Keep</a>-->
     <a href="#" class="btn btn-primary">SomeThing</a>
-    <a href="#" class="btn btn-primary">Else</a>
+    <!--<a href="#" class="btn btn-primary">Else</a>-->
   </div>
 </div>
 </div>
