@@ -123,8 +123,18 @@ export default {
   createKeep(obj_keep) {
 
   console.debug("In the createKeep method in the store with: ", obj_keep)
-  let op="huh";
   api.post('keeps', obj_keep)   
+  .then(res => {
+  //ToDo: Have to update the store after posting somehow.
+  //ToDo: Have to indicate that the keep was successfully created.  
+  console.log("Res: ",res)
+   }).catch(handleError)
+    },
+
+  createVault(obj_vault) {
+
+  console.debug("In the createVault method in the store with: ", obj_vault)
+  api.post('vaults', obj_vault)   
   .then(res => {
   //ToDo: Have to update the store after posting somehow.
   //ToDo: Have to indicate that the keep was successfully created.  

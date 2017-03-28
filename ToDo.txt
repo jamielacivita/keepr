@@ -1,8 +1,5 @@
 ToDos
 =====
-[ ] Ability to create Keeps using form.
-    - if so document. 
-[ ] on submission, form values clear. 
 [ ] Ability to create Vaults using form.
 [ ] Change title of create page.
 
@@ -22,6 +19,9 @@ ToDos
 ----After Lunch----
 [X] Remove Hardcoding of Id.
     - verify it is acutally reading data off the other table. 
+[ ] Ability to create Keeps using form.
+    - if so document. 
+[ ] on submission, form values clear. 
 --------------------------------------------------------------------------------------------------------
 OQ: What is the workflow process for regristration?
 1. User navigates to regristration page.

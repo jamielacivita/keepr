@@ -5,6 +5,7 @@ import register from '@/components/register'
 import login from '@/components/login'
 import createKeep from '@/components/createKeep'
 import readKeeps from '@/components/readKeeps'
+import createVault from '@/components/createVault'
 
 Vue.use(Router)
 
@@ -34,6 +35,11 @@ export default new Router({
       path: '/readKeeps',
       name: 'readKeeps',
       component: readKeeps
+    },
+    {
+      path: '/createVault',
+      name: 'createVault',
+      component: createVault
     },
   ]
 })
