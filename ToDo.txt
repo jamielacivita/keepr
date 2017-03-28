@@ -120,6 +120,11 @@ Goal: Ability to pull public keeps into the store.
 =====================================================
 Done.
 
+Switched over to my own DB 
+used configure/env.js to do so.
+
+OQ: How to use monogo to log into this db remotely?
+
 
 
 
