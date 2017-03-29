@@ -21,9 +21,10 @@
       </li>
     </ul>
 
-    <div v-if="showKeepList" class="vaultBorder">
-      <h1> Space for Vault list here </h1>
-      <!--<h3>{{$root.store.state.vaults}}</h3>-->
+<!--This section of the page displays the users vaults.-->
+    <div v-if="showVaultList" class="vaultBorder">
+      <h1> Showing All Vaults </h1>
+      <h3>{{$root.store.state.vaults}}</h3>
       <ul id="publicVaults">
         <li v-for="(item, index) in $root.store.state.vaults">
           <div class="card" style="width: 320px">
@@ -40,7 +41,7 @@
 
     </div>
 
-
+<button>Debug: Open and close Keep List</button>
   </div>
 </template>
 
@@ -49,7 +50,7 @@
     name: 'readKeeps',
     data() {
       return {
-        showKeepList: false,
+        showVaultList: false,
         keep_obj: ''
       }
     },
@@ -60,21 +61,23 @@
       },
       storeKeep(keep_obj) {
 
-        console.debug("1). In storeKeep with: ", keep_obj)
-        console.log("this should be a keep object.")
+        //console.debug("1). In storeKeep with: ", keep_obj)
+        //console.log("this should be a keep object.")
 
         this.keep_obj = keep_obj;
-        this.showKeepList = !this.showKeepList;
+        this.showVaultList = !this.showVaultList;
 
-        console.debug("2). The keep objec in the local store is: ", this.keep_obj)
-        console.log("this should be a keep object.")
+        //console.debug("2). The keep objec in the local store is: ", this.keep_obj)
+        //console.log("this should be a keep object.")
 
       },
 
       addToVault(vaultId) {
-        console.debug("3.) In add to vault with a vault object of: ", this.keep_obj)
-        console.debug("In add to vault with vault Id of: ", vaultId)
+        //console.debug("3.) In add to vault with a vault object of: ", this.keep_obj)
+        //console.debug("In add to vault with vault Id of: ", vaultId)
         this.$root.store.actions.setKeepToVault(this.keep_obj,  vaultId) 
+        this.showVaultList = !this.showVaultList;
+        this.getKeeps();
       },
 
 
@@ -82,7 +85,7 @@
 
     },
     mounted: function () {
-      console.log("Mounting Read Keeps")
+      //console.log("Mounting Read Keeps")
       this.$root.store.actions.getKeeps()
       this.$root.store.actions.getVaults()
     }

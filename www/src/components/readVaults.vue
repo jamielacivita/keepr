@@ -38,7 +38,7 @@
         this.$root.store.actions.getKeeps()
       },
       showId(keepId) {
-        console.debug("In showId with: ", keepId)
+        //console.debug("In showId with: ", keepId)
         this.keepId = keepId;
         this.showKeepList = !this.showKeepList;
         //need to get a list of logged in users vaults.
@@ -46,13 +46,13 @@
       },
 
       addToVault(vaultId) {
-        console.debug("In add to vault with keep Id of: ", this.keepId)
-        console.debug("In add to vault with vault Id of: ", vaultId)
+        //console.debug("In add to vault with keep Id of: ", this.keepId)
+        //console.debug("In add to vault with vault Id of: ", vaultId)
         this.$root.store.actions.setKeepToVault(this.keepId,  vaultId)
       },
     },
     mounted: function () {
-      console.log("Mounting Read Keeps")
+      //console.log("Mounting Read Keeps")
       this.$root.store.actions.getKeeps()
       this.$root.store.actions.getVaults()
     }

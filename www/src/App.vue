@@ -86,7 +86,7 @@ export default {
   {
   login()
   {
-  console.debug("inside the login method.")
+  //console.debug("inside the login method.")
 
         let login_object = {}
         login_object.email = this.email;
@@ -97,7 +97,7 @@ export default {
 
   register()
   {
-  console.debug("inside the register method.")
+  //console.debug("inside the register method.")
 
         let register_object = {}
         register_object.name = this.name;

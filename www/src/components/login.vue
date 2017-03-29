@@ -26,7 +26,7 @@ export default {
 {
   login()
   {
-  console.debug("inside the login method.")
+  //console.debug("inside the login method.")
 
         let login_object = {}
         login_object.email = this.email;

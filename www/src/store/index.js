@@ -83,7 +83,7 @@ export default {
   actions:
   {
     register(register_object) {
-      console.debug("In the register method in the store.")
+      //console.debug("In the register method in the store.")
       base.post('register', register_object)
         .then(res => {
           //need to do some error checking for improper regristration. 
@@ -95,23 +95,23 @@ export default {
     },
 
     login(login_object) {
-      console.log("In the login method in the store.")
+      //console.log("In the login method in the store.")
 
       base.post('login', login_object)  // <--- I believe this is a post to :3000/register with {body} 
         .then(res => {
           // //the next two lines are setting the active state in the local store.
-          console.debug(res)
+          //console.debug(res)
           //Was the login successful?
-          console.debug("res.data.error", res.data.error)
+          //console.debug("res.data.error", res.data.error)
           if (res.data.error == 'Invalid Email or Password') {
-            console.debug("unsuccessful login")
+            //console.debug("unsuccessful login")
             //set improper login flag -- used to display message. 
             state.loginMessage = 'Invalid email or password.'
           }
           else {
-            console.debug("succesfully login.")
+            //console.debug("succesfully login.")
             state.user = res.data.data
-            console.log("Res.data.data: ", res.data.data)
+            //console.log("Res.data.data: ", res.data.data)
             //send user to keeps page.
             router.push({ path: 'readKeeps' })
           }
@@ -131,12 +131,12 @@ export default {
 
     createVault(obj_vault) {
 
-      console.debug("In the createVault method in the store with: ", obj_vault)
+      //console.debug("In the createVault method in the store with: ", obj_vault)
       api.post('vaults', obj_vault)
         .then(res => {
           //ToDo: Have to update the store after posting somehow.
           //ToDo: Have to indicate that the keep was successfully created.  
-          console.log("Res: ", res)
+          //console.log("Res: ", res)
         }).catch(handleError)
     },
 
@@ -153,50 +153,45 @@ export default {
     },
 
     getVaults() {
-      console.log("In the get Vaults method in the store.")
+      //console.log("In the get Vaults method in the store.")
       api.get('vaults')
         .then(res => {
           var arr_vaults = res.data.data;
-          console.log("arr_vaults:", arr_vaults)
+          //console.log("arr_vaults:", arr_vaults)
           for (var i = 0; i < arr_vaults.length; i++)
           {
             var vault = arr_vaults[i];
-            console.log("vaultKeeps: ",vault.keeps)
+            //console.log("vaultKeeps: ",vault.keeps)
           }
-
-
-
-
-
           state.vaults = res.data.data;
         }).catch(handleError)
     },
 
     setKeepToVault(keep_obj, vaultId) {
       // this function performs a put to add the keep Id to the vault.
-      console.log("In set keep to vault in the store.")
-      console.debug("4.) In setKeepToVault with keep Object of: ", keep_obj)
-      console.debug("5.) In setKeepToVault with vault Id of: ", vaultId)
+      //console.log("In set keep to vault in the store.")
+      //console.debug("4.) In setKeepToVault with keep Object of: ", keep_obj)
+      //console.debug("5.) In setKeepToVault with vault Id of: ", vaultId)
 
       // First pull in the current vault object based on id.
       api.get('vaults/' + vaultId)
         .then(res => {
-          console.log("6.) before adding keepId: ", res.data.data);
+          //console.log("6.) before adding keepId: ", res.data.data);
           //isolate the keeps field.
           let keeps = res.data.data.keeps
-          console.log("7.) Keeps variable before adding keepId: ", keeps);
+          //console.log("7.) Keeps variable before adding keepId: ", keeps);
           //add the new keepId to the keeps array.
           res.data.data.keeps.push(keep_obj)
-          console.log("8.) Keeps variable after adding keepId: ", keeps);
+          //console.log("8.) Keeps variable after adding keepId: ", keeps);
           //Put the new array in the database. 
 
           let obj_keep = {} //create an object to create the keeps array.
           obj_keep.keeps = keeps
-          console.log("9.) Keeps field object after adding keepId: ", obj_keep);
+          //console.log("9.) Keeps field object after adding keepId: ", obj_keep);
 
           api.put('vaults/' + vaultId, obj_keep)
             .then(res => {
-              state.vaults = res.data.data;
+              //state.vaults = res.data.data;
             }).catch(handleError)
         }).catch(handleError)
     },

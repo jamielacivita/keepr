@@ -22,7 +22,8 @@ let schema = new Schema({
   imageUrl: { type: String },
   // Relations
   userId: { type: ObjectId, ref: user.name, required: true },
-  keeps: [{ type: ObjectId, ref: keep.name }]
+  // keeps: [{ type: ObjectId, ref: keep.name }]
+  keeps: []
 })
 
 module.exports = mongoose.model('Vault', schema)

@@ -45,7 +45,7 @@
       createVault() {
 
 
-        console.debug("inside the create Vault method on the local page.")
+        //console.debug("inside the create Vault method on the local page.")
 
         let obj_vault = {}
         obj_vault.name = this.name;
