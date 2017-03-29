@@ -12,12 +12,10 @@ function API(model, schema) {
   }
 
   function get(req, res, next) {
-    console.log("requesting api ", model.name)
     var id = req.params.id || req.query.id || '';
     var params = req.params.id ? req.params : {};
     var query = req.query.with || '';
-    console.log("19: ", query)
-
+    console.log("query", query)
     if (id) {
       schema.findById(id)
         .populate(query)
@@ -43,8 +41,6 @@ function API(model, schema) {
   }
 
   function create(req, res, next) {
-    console.log("here!")
-    console.log("request:", req)
     var action = actions.create
 
     let model = new schema(req.body)

@@ -6,6 +6,7 @@
 <router-link v-bind:to="'CreateKeep'">CreateKeep</router-link>
 <router-link v-bind:to="'ReadKeeps'">ReadKeep</router-link>
 <router-link v-bind:to="'CreateVault'">CreateVault</router-link>
+<router-link v-bind:to="'ReadVaults'">ReadVaults</router-link>
 
     <div v-if="!$root.store.state.user.email">
       <h1>{{$root.store.state.loginMessage}}</h1>

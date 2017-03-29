@@ -156,6 +156,18 @@ export default {
       console.log("In the get Vaults method in the store.")
       api.get('vaults')
         .then(res => {
+          var arr_vaults = res.data.data;
+          console.log("arr_vaults:", arr_vaults)
+          for (var i = 0; i < arr_vaults.length; i++)
+          {
+            var vault = arr_vaults[i];
+            console.log("vaultKeeps: ",vault.keeps)
+          }
+
+
+
+
+
           state.vaults = res.data.data;
         }).catch(handleError)
     },
