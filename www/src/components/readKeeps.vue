@@ -13,7 +13,7 @@
               <h4 class="card-title">{{item.title}}</h4>
               <p class="card-text">{{item.tags}}</p>
               <!--<a href="#" class="btn btn-primary">Keep</a>-->
-              <a v-on:click="showId(item._id)" class="btn btn-primary">Vault Me.</a>
+              <a v-on:click="storeKeep(item)" class="btn btn-primary">Vault Me.</a>
               <!--<a href="#" class="btn btn-primary">Else</a>-->
             </div>
           </div>
@@ -50,7 +50,7 @@
     data() {
       return {
         showKeepList: false,
-        keepId: ''
+        keep_obj: ''
       }
     },
     methods:
@@ -58,20 +58,23 @@
       getKeeps() {
         this.$root.store.actions.getKeeps()
       },
-      showId(keepId) {
-        console.debug("In showId with: ", keepId)
-        this.keepId = keepId;
+      storeKeep(keep_obj) {
+
+        console.debug("1). In storeKeep with: ", keep_obj)
+        console.log("this should be a keep object.")
+
+        this.keep_obj = keep_obj;
         this.showKeepList = !this.showKeepList;
-        //need to get a list of logged in users vaults.
-        //need to create a modal with users' vaults.
+
+        console.debug("2). The keep objec in the local store is: ", this.keep_obj)
+        console.log("this should be a keep object.")
+
       },
 
       addToVault(vaultId) {
-        console.debug("In add to vault with keep Id of: ", this.keepId)
+        console.debug("3.) In add to vault with a vault object of: ", this.keep_obj)
         console.debug("In add to vault with vault Id of: ", vaultId)
-        this.$root.store.actions.setKeepToVault(this.keepId,  vaultId)
-
-
+        this.$root.store.actions.setKeepToVault(this.keep_obj,  vaultId) 
       },
 
 

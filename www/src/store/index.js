@@ -172,25 +172,27 @@ export default {
         }).catch(handleError)
     },
 
-    setKeepToVault(keepId, vaultId) {
+    setKeepToVault(keep_obj, vaultId) {
+      // this function performs a put to add the keep Id to the vault.
       console.log("In set keep to vault in the store.")
-      console.debug("In setKeepToVault with keep Id of: ", keepId)
-      console.debug("In setKeepToVault with vault Id of: ", vaultId)
+      console.debug("4.) In setKeepToVault with keep Object of: ", keep_obj)
+      console.debug("5.) In setKeepToVault with vault Id of: ", vaultId)
 
-      //perform a put to add the keep Id to the vault.
-      //First pull in the current vault object.
+      // First pull in the current vault object based on id.
       api.get('vaults/' + vaultId)
         .then(res => {
-          console.log("before adding keepId: ", res.data.data);
+          console.log("6.) before adding keepId: ", res.data.data);
+          //isolate the keeps field.
           let keeps = res.data.data.keeps
-          console.log("Keeps before adding keepId: ", res.data.data.keeps);
+          console.log("7.) Keeps variable before adding keepId: ", keeps);
           //add the new keepId to the keeps array.
-          res.data.data.keeps.push(keepId)
-          console.log("Keeps after adding keepId: ", res.data.data.keeps);
+          res.data.data.keeps.push(keep_obj)
+          console.log("8.) Keeps variable after adding keepId: ", keeps);
           //Put the new array in the database. 
 
-          let obj_keep = {}
-          obj_keep.keeps = res.data.data.keeps
+          let obj_keep = {} //create an object to create the keeps array.
+          obj_keep.keeps = keeps
+          console.log("9.) Keeps field object after adding keepId: ", obj_keep);
 
           api.put('vaults/' + vaultId, obj_keep)
             .then(res => {

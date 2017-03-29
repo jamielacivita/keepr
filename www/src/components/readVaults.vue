@@ -49,13 +49,7 @@
         console.debug("In add to vault with keep Id of: ", this.keepId)
         console.debug("In add to vault with vault Id of: ", vaultId)
         this.$root.store.actions.setKeepToVault(this.keepId,  vaultId)
-
-
       },
-
-
-
-
     },
     mounted: function () {
       console.log("Mounting Read Keeps")
