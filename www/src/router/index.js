@@ -8,6 +8,9 @@ import readKeeps from '@/components/readKeeps'
 import createVault from '@/components/createVault'
 import readVaults from '@/components/readVaults'
 import readVault from '@/components/readVault'
+import keeps from '@/components/keeps'
+import keepList from '@/components/KeepList'
+
 
 Vue.use(Router)
 
@@ -52,6 +55,27 @@ export default new Router({
       path: '/readVault',
       name: 'readVault',
       component: readVault
+    },
+    {
+      path: '/keeps',
+      component: keeps,
+      children:[
+        {
+          path:'',
+          name:'keeps',
+          component:keepList
+        },
+        {
+          path:'new', // NO SLASH IN FRONT!!!
+          name:'keeps.new',
+          component:createKeep
+        },
+        // {
+        //   // path:":id",
+        //   // name:"keeps.show",
+        //   // component:showKeep
+        // }
+      ]
     },
   ]
 })

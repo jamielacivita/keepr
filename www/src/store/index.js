@@ -115,7 +115,7 @@ export default {
 
             //console.log("Res.data.data: ", res.data.data)
             //send user to keeps page.
-            router.push({ path: 'readKeeps' })
+            router.push({ name: 'keeps' })
           }
         }).catch(handleError)
     },
@@ -201,9 +201,17 @@ export default {
     sendToCurrentVault()
     {
       console.debug("In send to CurrentVault in store.")
-      
-      
       router.push({ name: 'readVault' })
+    },
+
+    flyerGetKeeps(id)
+    {
+      console.debug("In Flyer Get Keeps with: ", id)
+      api.get('keeps/')
+        .then(res => {
+          console.debug("data returned: ", res)
+          state.myKeeps = res.data.data;
+        }).catch(handleError)
     }
 
 
