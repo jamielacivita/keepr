@@ -40,8 +40,6 @@
       </ul>
 
     </div>
-
-<button>Debug: Open and close Keep List</button>
   </div>
 </template>
 

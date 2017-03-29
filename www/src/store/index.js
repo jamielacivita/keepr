@@ -18,7 +18,8 @@ let state = {
   loginMessage: 'No one is logged in! - JWTO',
   user: {},
   myVaults: {},
-  myKeeps: {},
+  myKeeps: {}, 
+  currentVaultId: '',
   //Dummy Data
   keeps: [{
     title: 'Learn to Draw',
@@ -111,6 +112,7 @@ export default {
           else {
             //console.debug("succesfully login.")
             state.user = res.data.data
+
             //console.log("Res.data.data: ", res.data.data)
             //send user to keeps page.
             router.push({ path: 'readKeeps' })
@@ -195,6 +197,17 @@ export default {
             }).catch(handleError)
         }).catch(handleError)
     },
+
+    sendToCurrentVault()
+    {
+      console.debug("In send to CurrentVault in store.")
+      state
+      debugger
+      router.push({ name: 'readVault' })
+    }
+
+
+
   }
 }
 

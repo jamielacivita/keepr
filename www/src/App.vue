@@ -7,8 +7,9 @@
 <router-link v-bind:to="'ReadKeeps'">ReadKeep</router-link>
 <router-link v-bind:to="'CreateVault'">CreateVault</router-link>
 <router-link v-bind:to="'ReadVaults'">ReadVaults</router-link>
+<router-link v-bind:to="'readVault'">ReadVault</router-link>
 
-    <div v-if="!$root.store.state.user.email">
+    <div v-if="  !$root.$data.store.state.user.email ">||
       <h1>{{$root.store.state.loginMessage}}</h1>
 
 <!--junk start here-->
@@ -78,8 +79,8 @@ export default {
     return {
         showLogin: false, 
         name: '',
-        email: '',
-        password : ''
+        email: 'JCLacivita@gmail.com',
+        password : 'sunfish'
     }
   },
   methods: 
@@ -91,7 +92,7 @@ export default {
         let login_object = {}
         login_object.email = this.email;
         login_object.password = this.password;
-
+debugger
   this.$root.store.actions.login(login_object)
 },
 

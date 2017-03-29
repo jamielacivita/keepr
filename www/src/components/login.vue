@@ -18,8 +18,8 @@ export default {
   name: 'login',
   data () {
     return {
-        email: '',
-        password : ''
+        email: 'JCLacivita@gmail.com',
+        password : 'sunfish'
     }
   },
   methods: 

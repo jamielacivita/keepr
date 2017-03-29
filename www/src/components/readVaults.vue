@@ -2,7 +2,7 @@
   <div class="readKeeps">
     <h1>Read My Vaults Page</h1>
 
-      <!--<h3>{{$root.store.state.vaults}}</h3>-->
+    <!--<h3>{{$root.store.state.vaults}}</h3>-->
 
     <div class="vaultBorder">
       <ul id="publicVaults">
@@ -12,6 +12,7 @@
               <div class="card-block">
                 <h4 class="card-title">{{item.name}}</h4>
                 <p class="card-text">{{item.description}}</p>
+                <a v-on:click="goToVault(item._id)" class="btn btn-primary">Take me to this vault.</a>
               </div>
             </div>
           </div>
@@ -25,7 +26,7 @@
 
 <script>
   export default {
-    name: 'readKeeps',
+    name: 'readVaults',
     data() {
       return {
         showKeepList: false,
@@ -34,25 +35,16 @@
     },
     methods:
     {
-      getKeeps() {
-        this.$root.store.actions.getKeeps()
-      },
-      showId(keepId) {
-        //console.debug("In showId with: ", keepId)
-        this.keepId = keepId;
-        this.showKeepList = !this.showKeepList;
-        //need to get a list of logged in users vaults.
-        //need to create a modal with users' vaults.
-      },
-
-      addToVault(vaultId) {
-        //console.debug("In add to vault with keep Id of: ", this.keepId)
-        //console.debug("In add to vault with vault Id of: ", vaultId)
-        this.$root.store.actions.setKeepToVault(this.keepId,  vaultId)
+      goToVault(vaultId) {
+        //This function takes in the vaultId that was clicked.
+        console.debug("In goToVault with ", vaultId)
+        this.$root.store.state = vaultId;
+        //It sets the value of currentVaultId in the store.
+        //It navigates to the readVault Page.
+        this.$root.store.actions.sendToCurrentVault()
       },
     },
     mounted: function () {
-      //console.log("Mounting Read Keeps")
       this.$root.store.actions.getKeeps()
       this.$root.store.actions.getVaults()
     }
