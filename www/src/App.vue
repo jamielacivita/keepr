@@ -92,7 +92,6 @@ export default {
         let login_object = {}
         login_object.email = this.email;
         login_object.password = this.password;
-debugger
   this.$root.store.actions.login(login_object)
 },
 

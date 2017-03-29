@@ -22,11 +22,11 @@
 
     },
     mounted: function () {
-      debugger
+      
       this.$root.store.actions.getKeeps()
-      debugger
+      
       this.$root.store.actions.getVaults()
-      debugger
+      
 
       console.debug("In mounted function in readVault")
       //Need to read in the current vault Id.

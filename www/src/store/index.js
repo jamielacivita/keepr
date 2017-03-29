@@ -201,8 +201,8 @@ export default {
     sendToCurrentVault()
     {
       console.debug("In send to CurrentVault in store.")
-      state
-      debugger
+      
+      
       router.push({ name: 'readVault' })
     }
 
