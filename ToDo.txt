@@ -1,5 +1,16 @@
 ToDos
 =====
+[ ] Generate a list of keeps by User ID.
+    - generate a liste of all keep via postman
+    - Are keeps given a user id
+[ ] Need a log out button.
+----------------------------------------------
+    - generate a list of all keeps on mlab.
+    - verify that different users ids are recorded on vaults.
+
+
+[ ] Make Keeps Mobile friendly
+
 [ ] Users can see all public keeps.
 [ ] Users can create and manage their keeps
 
