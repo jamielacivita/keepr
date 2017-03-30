@@ -13,6 +13,7 @@ import showKeep from '@/components/showKeep'
 import vaults from '@/components/vaults'
 import keepList from '@/components/KeepList'
 import vaultList from '@/components/VaultList'
+import showVault from '@/components/showVault'
 
 
 Vue.use(Router)
@@ -94,11 +95,11 @@ export default new Router({
           name:'vaults.new',
           component:createVault
         },
-        // {
-        //   // path:":id",
-        //   // name:"vaults.show",
-        //   // component:showKeep
-        // }
+        {
+          path:":id",
+          name:"vaults.show",
+          component:showVault
+        }
       ]
     },
   ]

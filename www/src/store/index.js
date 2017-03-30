@@ -18,7 +18,7 @@ let state = {
   loginMessage: 'No one is logged in! - JWTO',
   user: {},
   myVaults: {},
-  myKeeps: {}, 
+  myKeeps: {},
   currentVaultId: '',
   //Dummy Data
   keeps: [{
@@ -133,6 +133,7 @@ export default {
           //ToDo: Have to indicate that the keep was successfully created.  
           console.log("Res: ", res)
         }).catch(handleError)
+      // router.push({ path: '/keeps/' })
     },
 
     createVault(obj_vault) {
@@ -144,6 +145,7 @@ export default {
           //ToDo: Have to indicate that the keep was successfully created.  
           //console.log("Res: ", res)
         }).catch(handleError)
+      // router.push({ path: '/vaults/' })
     },
 
     getKeeps() {
@@ -194,16 +196,15 @@ export default {
               //state.vaults = res.data.data;
             }).catch(handleError)
         }).catch(handleError)
+      // router.push({ path: '/vaults/' })
     },
 
-    sendToCurrentVault()
-    {
+    sendToCurrentVault() {
       console.debug("In send to CurrentVault in store.")
       router.push({ name: 'readVault' })
     },
 
-    flyerGetKeeps(id)
-    {
+    flyerGetKeeps(id) {
       console.debug("In Flyer Get Keeps with: ", id)
       api.get('keeps/')
         .then(res => {
@@ -212,20 +213,27 @@ export default {
         }).catch(handleError)
     },
 
-    flyerGetKeep(id)
-    {
+    flyerGetKeep(id) {
       console.debug("In Flyer Get Keep with: ", id)
-      api.get('keeps/'+id)
+      api.get('keeps/' + id)
         .then(res => {
           console.debug("data returned: ", res)
           state.myKeeps = res.data.data;
         }).catch(handleError)
     },
 
-    flyerGetVaults(id)
-    {
+    flyerGetVaults(id) {
       console.debug("In Flyer Get Valuts with: ", id)
       api.get('vaults/')
+        .then(res => {
+          console.debug("data returned: ", res)
+          state.myVaults = res.data.data;
+        }).catch(handleError)
+    },
+
+    flyerGetVault(id) {
+      console.debug("In Flyer Get Valut with: ", id)
+      api.get('vaults/'+id)
         .then(res => {
           console.debug("data returned: ", res)
           state.myVaults = res.data.data;

@@ -25,6 +25,9 @@
         </div>
       </div>
     </div>
+
+<router-link to="/keeps"> Return to Keeps Page </router-link>
+
   </div>
 </template>
 

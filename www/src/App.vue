@@ -10,7 +10,14 @@
     <router-link v-bind:to="'readVault'">ReadVault</router-link>-->
 
     <!--<div v-if="!$root.$data.store.state.user.email">-->
-      <h1>User Object: {{$root.store.state.user}}</h1>
+      <h4>User Object: {{$root.store.state.user}}</h4>
+
+<router-link to="/keeps">Go To Keeps</router-link>
+<router-link to="/keeps/new">Make New Keep</router-link>
+<router-link to="/vaults">Go To Vaults</router-link>
+<router-link to="/vaults/new">Make New Vault</router-link>
+
+
 
       <!--<ul class="nav nav-tabs">
         <li class="active"><a data-toggle="tab" href="#home" class="tab_class">Login</a></li>

@@ -67,11 +67,6 @@
         console.debug("In sendToKeep with vaultId", vaultId)
         this.$root.store.actions.setKeepToVault(keep_obj, vaultId)
       },
-
-
-
-
-
       userVaults: function(arr_vaults) {
         this.out_array = arr_vaults.filter(element => {
           console.debug("element: ", element)
@@ -83,9 +78,6 @@
         })
         console.debug("out array: ",this.out_array)
         return this.out_array;
-      
-    
-  
 },
       openVaults: function () {
         console.debug("In open vaults function.")

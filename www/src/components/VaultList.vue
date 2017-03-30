@@ -4,21 +4,20 @@
     <!--<div> {{myvaults}} </div>-->
 
     <ul id="publicVaults" class="fb">
-      <li v-for="(item, index) in $root.store.state.myVaults">
+      <!--<li v-for="(item, index) in $root.store.state.myVaults">-->
+<li v-for="(item, index) in userVaults($root.store.state.myVaults)">
         <div class="card">
           <div class="cardOutline">
             <div class="card-block">
               <h4 class="card-title">{{item.name}}</h4>
               <p class="card-text">{{item.description}}</p>
+              <p class="card-text">{{item._id}}</p>
               <ul>
                 <li v-for="(item, index) in item.keeps">
                 <img class="card-img-top" :src=item.imageUrl width="300px" alt="Card image cap">
                 <div>{{item.title}}</div>
                 </li>
               </ul>
-
-
-
               <!--<a v-on:click="sendToKeep(myKeeps,item._id)" class="btn btn-primary">Vault Me.</a>-->
             </div>
           </div>
@@ -26,6 +25,7 @@
       </li>
     </ul>
 
+<router-link to="/keeps">Go To Keeps</router-link>
 
   </div>
 </template>
@@ -40,17 +40,38 @@
     },
     methods:
     {
+
+      userVaults: function(arr_vaults) {
+        this.out_array = arr_vaults.filter(element => {
+          console.debug("element: ", element)
+          console.debug("element user id: ", element.userId)
+          console.debug("user id: ", this.$root.store.state.user._id)
+
+          if (element.userId == this.$root.store.state.user._id) { return true }
+          else { return false }
+        })
+        console.debug("out array: ",this.out_array)
+        return this.out_array;
+},
+
+
+
+
+
+
+
+
+
     },
     mounted: function () {
-      console.log("Hello World.")
+      console.debug("Inside the vaults mounted function.")
       this.$root.store.actions.flyerGetVaults(this.$route.params.id)
     },
     computed: {
-      myvaults() {
+      myVaults() {
         return this.$root.store.state.myVaults
       }
     }
-
   }
 
 </script>
