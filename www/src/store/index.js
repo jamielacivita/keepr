@@ -96,7 +96,7 @@ export default {
     },
 
     login(login_object) {
-      //console.log("In the login method in the store.")
+      console.log("In the login method in the store.")
 
       base.post('login', login_object)  // <--- I believe this is a post to :3000/register with {body} 
         .then(res => {
@@ -110,12 +110,13 @@ export default {
             state.loginMessage = 'Invalid email or password.'
           }
           else {
-            //console.debug("succesfully login.")
+            console.debug("succesfully login.")
             state.user = res.data.data
+            console.debug(state.user)
 
             //console.log("Res.data.data: ", res.data.data)
             //send user to keeps page.
-            router.push({ name: 'keeps' })
+            router.push({ path: 'keeps/' })
           }
         }).catch(handleError)
     },

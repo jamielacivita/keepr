@@ -1,15 +1,19 @@
 ToDos
 =====
-[ ] Generate a list of keeps by User ID.
-    - generate a liste of all keep via postman
-    - Are keeps given a user id
+[ ] Restyle Login page
+[ ] Wire up Registration Page
+[ ] Restrict vaults shown to user Id.
 [ ] Need a log out button.
-----------------------------------------------
-    - generate a list of all keeps on mlab.
-    - verify that different users ids are recorded on vaults.
+[ ] Verify that different users ids are recorded on vaults.
 
 
-[ ] Make Keeps Mobile friendly
+
+
+
+
+
+
+
 
 [ ] Users can see all public keeps.
 [ ] Users can create and manage their keeps
@@ -24,15 +28,8 @@ ToDos
 ----Lower Priority Stuff To Do----
 [ ] Change title of create page.
 [ ] Users register and login - roughly done verify.
+[ ] Make Keeps Mobile friendly
 
-
-----After Lunch----
-[X] Remove Hardcoding of Id.
-    - verify it is acutally reading data off the other table. 
-[ ] Ability to create Keeps using form.
-    - if so document. 
-[ ] on submission, form values clear. 
-[ ] Ability to create Vaults using form.
 --------------------------------------------------------------------------------------------------------
 OQ: What is the workflow process for regristration?
 1. User navigates to regristration page.

@@ -9,18 +9,16 @@
     <router-link v-bind:to="'ReadVaults'">ReadVaults</router-link>
     <router-link v-bind:to="'readVault'">ReadVault</router-link>-->
 
-    <div v-if="  !$root.$data.store.state.user.email ">||
-      <h1>{{$root.store.state.loginMessage}}</h1>-->
+    <!--<div v-if="!$root.$data.store.state.user.email">-->
+      <h1>User Object: {{$root.store.state.user}}</h1>
 
-
-
-      <ul class="nav nav-tabs">
+      <!--<ul class="nav nav-tabs">
         <li class="active"><a data-toggle="tab" href="#home" class="tab_class">Login</a></li>
         <li><a data-toggle="tab" href="#menu1" class="tab_class">Register</a></li>
         <li><a data-toggle="tab" href="#menu2" class="tab_class">Just Visiting</a></li>
-      </ul>
+      </ul>-->
 
-      <div class="tab-content">
+      <!--<div class="tab-content">
         <div id="home" class="tab-pane fade in active">
           <form>
 
@@ -29,6 +27,9 @@
             <button type="submit" name="action" @click.prevent="login()">Submit</button>
           </form>
         </div>
+
+
+
         <div id="menu1" class="tab-pane fade">
           <form>
             <input class="inputField" v-model="name" placeholder="  name"><br>
@@ -42,25 +43,22 @@
         </div>
       </div>
 
-    </div>
+    </div>-->
 
 
 
 
-    <div v-if="showLogin">
+    <!--<div v-if="showLogin">
       <form>
 
         jclacivita@gmail.com: <input v-model="email" placeholder="e-mail"><br> sunfish: <input v-model="password" placeholder="password"><br>
         <button type="submit" name="action" @click.prevent="login()">Submit</button>
       </form>
-    </div>
+    </div>-->
 
-    <div v-if="!showLogin">
+    <!--<div v-if="!showLogin">
 
-    </div>
-
-
-
+    </div>-->
 
     <router-view></router-view>
   </div>
