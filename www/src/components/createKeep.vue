@@ -1,9 +1,7 @@
 <template>
   <div class="createKeep">
-    <h1>Create Keep Page</h1>
-
+    <h1>Enter Details to Make a Keep</h1>
     <div class="frame">
-
       <div class="tab-content">
         <div id="home" class="tab-pane fade in active">
           <form>
@@ -12,25 +10,22 @@
             <input class="inputField" v-model="imageUrl" placeholder="  Image URL (Optional)"><br>
             <input class="inputField" v-model="articleLink" placeholder="  Article Link"><br>
             <input class="inputField" v-model="tags" placeholder="  Tags"><br>
-            <button type="submit" name="action" @click.prevent="createKeep()">Submit</button>
-          </form>
-        </div>
 
 
-        <div id="menu1" class="tab-pane fade">
-          <form>
-            <!--name: <input v-model="name" placeholder="name"><br> -->
-            <h3> Vault Creation form goes here </h3>
+            <!--<button type="submit" name="action" @click.prevent="createKeep()">Submit</button>-->
+            <button class="btn btn-primary button" type="submit" name="action" @click.prevent="createKeep()">Submit</button>
+
+
+
+        <!--<a class="btn btn-primary"><router-link v-bind:to='"/keeps/"+item._id'>Select Me.</router-link></a>-->
+
+
           </form>
         </div>
       </div>
     </div>
-
-<router-link to="/keeps"> Return to Keeps Page </router-link>
-
   </div>
 </template>
-
 <script>
   export default {
     name: 'createKeep',
@@ -71,7 +66,6 @@
         this.$root.store.actions.getKeeps()
       }
     }
-
   }
 
 </script>
@@ -96,4 +90,10 @@
   a {
     color: #42b983;
   }
+
+  .inputField{
+    width: 100%;
+  }
+
+  .button{margin-top: 15px;}
 </style>
