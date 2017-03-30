@@ -92,9 +92,9 @@ export default {
           state.user = res.data.data
           console.log("Error Code: ", res.data.error.code)
           console.log("state.user: ", state.user)
-          router.push({ path: 'keeps/' })
           console.debug("96: after push.")
         }).catch(handleError)
+          router.push({ path: 'keeps/' })
     },
 
     login(login_object) {

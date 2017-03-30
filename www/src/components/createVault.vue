@@ -1,20 +1,18 @@
 <template>
   <div class="createKeep">
-    <h1>Create Vault Page</h1>
-    <!--<button @click.prevent="createKeep()">Test Make Keep Func.</button>-->
-    <!--<button @click.prevent="getKeeps()">Test Get Keeps</button>-->
-
+    <h1>Enter Details to Make a Vault</h1>
     <div class="frame">
-
       <div class="tab-content">
         <div id="home" class="tab-pane fade in active">
           <form>
-            <!-- Form Fields for Createing Keeps -->
+
+
+            <!-- Form Fields for Createing Vaults -->
             <input class="inputField" v-model="name" placeholder="  Name"><br>
             <input class="inputField" v-model="description" placeholder="  description"><br>
             <input class="inputField" v-model="imageUrl" placeholder="  imageUrl"><br>
 
-            <button type="submit" name="action" @click.prevent="createVault()">Submit</button>
+            <button class="btn btn-primary button" type="submit" name="action" @click.prevent="createVault()">Submit</button>
           </form>
         </div>
 
@@ -88,4 +86,6 @@
   a {
     color: #42b983;
   }
+
+    .button{margin-top: 15px;}
 </style>

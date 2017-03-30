@@ -9,7 +9,7 @@
 
     <div v-else>
       <h1> You are not logged in </h1>
-      <router-link to="login">Return to Login Page</router-link>
+      <router-link to="/login"><button class="btn btn-primary">Return to Login Page</button></router-link>
     </div>
 
     </div>
@@ -23,3 +23,7 @@
   }
 
 </script>
+
+<style> 
+.button {color: white;}
+</style>

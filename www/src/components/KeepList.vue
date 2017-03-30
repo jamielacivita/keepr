@@ -1,6 +1,7 @@
 <template>
   <div class="keeps">
-    <h1>Keeps</h1>
+    <h1>Shared Keeps</h1>
+    <h3>Pick Some Favorites</h3>
     <!--<div>Debug: {{myKeeps}} </div>-->
 
     <ul id="publicKeeps" class="fb">
@@ -11,7 +12,7 @@
             <div class="card-block">
               <h4 class="card-title">{{item.title}}</h4>
               <p class="card-text">{{item.tags}}</p>
-              <a class="btn btn-primary"><router-link v-bind:to='"/keeps/"+item._id'>Select Me.</router-link></a>
+              <a class="btn btn-primary"><router-link v-bind:to='"/keeps/"+item._id'>View</router-link></a>
             </div>
           </div>
         </div>
@@ -75,7 +76,8 @@
   .fb {
     display: flex;
     flex-direction: row;
-    border: 1px solid red;
+    /*border: 1px solid red;*/
     flex-wrap: wrap;
+    justify-content: space-around;
   }
 </style>

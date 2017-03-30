@@ -1,11 +1,9 @@
 <template>
   <div class="hello">
     <h1>Welcome to Keepr</h1>
-    <p>Get Started</p>
-    <ul>
-      <li><router-link to="login">Login</router-link></li>
-      <li><router-link to="register">Register</router-link></li>
-    </ul>
+    <p>Lets Get This Started</p>
+      <button class="btn btn-primary button"><router-link to="login">Login</router-link></button>
+      <button class="btn btn-primary button"><router-link to="register">Register</router-link></button>
     <hr>
   </div>
 </template>
@@ -15,7 +13,6 @@ export default {
   name: 'hello',
   data () {
     return {
-
     }
   }
 }
