@@ -103,10 +103,11 @@ export default {
       base.post('login', login_object)  // <--- I believe this is a post to :3000/register with {body} 
         .then(res => {
           // //the next two lines are setting the active state in the local store.
-          //console.debug(res)
+          console.debug("Respone from login api call: ", res)
+          console.debug("res.data.message from login api call: ", res.data.message)
           //Was the login successful?
           //console.debug("res.data.error", res.data.error)
-          if (res.data.error == 'Invalid Email or Password') {
+          if (res.data.message == 'Invalid Email or Password') {
             //console.debug("unsuccessful login")
             //set improper login flag -- used to display message. 
             state.loginMessage = 'Invalid email or password.'

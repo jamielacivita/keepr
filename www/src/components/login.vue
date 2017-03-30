@@ -1,6 +1,7 @@
 <template>
   <div class="login">
     <h1>debug: login Page</h1>
+    <h1>{{$root.store.state.loginMessage}}</h1>
 
     <!--<form>
       email: <input v-model="email" placeholder="e-mail"><br> password: <input v-model="password" placeholder="password"><br>
@@ -17,10 +18,6 @@
         </form>
       </div>
       </div>
-
-
-
-
     </div>
 </template>
 
@@ -29,7 +26,7 @@
     name: 'login',
     data() {
       return {
-        email: 'JCLacivita@gmail.com',
+        email: '',
         password: 'sunfish'
       }
     },
