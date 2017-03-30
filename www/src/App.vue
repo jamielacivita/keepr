@@ -4,14 +4,17 @@
     <img src="./assets/logo.jpg">
 
     <!--<h4>User Object: {{$root.store.state.user}}</h4>-->
-    <h4>Logged in as: {{$root.store.state.user.name}} ({{$root.store.state.user.email}})</h4>
 
+    <div v-if="$root.store.state.user.name">
+    <h4>Logged in as: {{$root.store.state.user.name}} ({{$root.store.state.user.email}})</h4>
     <router-link to="/keeps" class="btn btn-primary">Go To Keeps</router-link>
     <router-link to="/keeps/new" class="btn btn-primary">Make New Keep</router-link>
     <router-link to="/vaults" class="btn btn-primary">Go To Vaults</router-link>
     <router-link to="/vaults/new" class="btn btn-primary">Make New Vault</router-link>
+    </div>
 
     <router-view></router-view>
+    
   </div>
 
   </div>
@@ -22,11 +25,11 @@
     name: 'app',
     data() {
       return {
-        showLogin: false,
-        name: '',
-        //hardcoded name and password.
-        email: 'JCLacivita@gmail.com',
-        password: 'sunfish'
+        // showLogin: false,
+        // name: '',
+        // //hardcoded name and password.
+        // email: 'JCLacivita@gmail.com',
+        // password: 'sunfish'
       }
     },
     methods:

@@ -2,9 +2,9 @@
   <div class="hello">
     <h1>Welcome to Keepr</h1>
     <p>Lets Get This Started</p>
-      <button class="btn btn-primary button"><router-link to="login">Login</router-link></button>
-      <button class="btn btn-primary button"><router-link to="register">Register</router-link></button>
-    <hr>
+      <router-link to="login" class="btn btn-primary">Login</router-link>
+      <router-link to="register" class="btn btn-primary">Register</router-link>
+
   </div>
 </template>
 
@@ -34,7 +34,7 @@ li {
   margin: 0 10px;
 }
 
-a {
+/*a {
   color: #42b983;
-}
+}*/
 </style>

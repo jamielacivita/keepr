@@ -17,9 +17,7 @@
                   <div>{{item.title}}</div>
                 </li>
               </ul>
-              <a class="btn btn-primary">
-                <router-link v-bind:to='"/vaults/"+item._id'>Go To This Vault.</router-link>
-              </a>
+                <router-link v-bind:to='"/vaults/"+item._id' class="btn btn-primary">Go To This Vault</router-link>
             </div>
           </div>
         </div>
@@ -81,9 +79,9 @@
     margin: 0 10px;
   }
   
-  a {
+  /*a {
     color: #42b983;
-  }
+  }*/
   
   .cardOutline {
     border: 1px solid black;

@@ -30,13 +30,9 @@
     methods:
     {
       login() {
-        console.debug("inside the login method.")
-
         let login_object = {}
         login_object.email = this.email;
         login_object.password = this.password;
-
-        console.debug(login_object)
 
         this.$root.store.actions.login(login_object)
       }

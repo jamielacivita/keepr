@@ -10,16 +10,7 @@
             <input class="inputField" v-model="imageUrl" placeholder="  Image URL (Optional)"><br>
             <input class="inputField" v-model="articleLink" placeholder="  Article Link"><br>
             <input class="inputField" v-model="tags" placeholder="  Tags"><br>
-
-
-            <!--<button type="submit" name="action" @click.prevent="createKeep()">Submit</button>-->
             <button class="btn btn-primary button" type="submit" name="action" @click.prevent="createKeep()">Submit</button>
-
-
-
-        <!--<a class="btn btn-primary"><router-link v-bind:to='"/keeps/"+item._id'>Select Me.</router-link></a>-->
-
-
           </form>
         </div>
       </div>

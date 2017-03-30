@@ -73,9 +73,9 @@
     margin: 0 10px;
   }
   
-  a {
+  /*a {
     color: #42b983;
-  }
+  }*/
   
   .cardOutline {
     border: 1px solid black;

@@ -12,7 +12,7 @@
             <div class="card-block">
               <h4 class="card-title">{{item.title}}</h4>
               <p class="card-text">{{item.tags}}</p>
-              <a class="btn btn-primary"><router-link v-bind:to='"/keeps/"+item._id'>View</router-link></a>
+              <router-link v-bind:to='"/keeps/"+item._id' class="btn btn-primary">View</router-link>
             </div>
           </div>
         </div>
@@ -63,9 +63,9 @@
     margin: 0 10px;
   }
   
-  a {
+  /*a {
     color: #42b983;
-  }
+  }*/
   
   .cardOutline {
     border: 1px solid black;
