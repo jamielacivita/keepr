@@ -84,7 +84,7 @@ export default {
   actions:
   {
     register(register_object) {
-      //console.debug("In the register method in the store.")
+      console.debug("In the register method in the store.")
       base.post('register', register_object)
         .then(res => {
           //need to do some error checking for improper regristration. 
@@ -92,6 +92,8 @@ export default {
           state.user = res.data.data
           console.log("Error Code: ", res.data.error.code)
           console.log("state.user: ", state.user)
+          router.push({ path: 'keeps/' })
+          console.debug("96: after push.")
         }).catch(handleError)
     },
 
