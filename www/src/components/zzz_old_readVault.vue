@@ -4,8 +4,6 @@
     {{$root.store}}
     <h1>{{vaultId}}</h1>
 
-
-
   </div>
 </template>
 

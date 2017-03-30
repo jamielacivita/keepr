@@ -1,25 +1,31 @@
 <template>
   <div class="keeps">
-    <h1>Show Vault</h1>
+    <h1>{{myVault.name}}</h1>
     <!--<div> Debug:  {{myVault}} </div>-->
+        <ul id="publicKeeps" class="fb">
+
     <div class="card">
       <div class="cardOutline">
         <div class="card-block">
-          <h4 class="card-title">{{myVault.name}}</h4>
+          <!--<h4 class="card-title">{{myVault.name}}</h4>-->
           <p class="card-text">{{myVault.description}}</p>
-          <p class="card-text">Debug: {{myVault._id}}</p>
+          <!--<p class="card-text">Debug: {{myVault._id}}</p>-->
           <ul>
             <li v-for="(item, index) in myVault.keeps">
               <img class="card-img-top" :src=item.imageUrl alt="Card image cap">
               <div>{{item.title}}</div>
-              </li>
+            </li>
           </ul>
         </div>
-        <button @click="deleteVault(myVault._id)">Delete This Vault</button>
+        <button class="btn btn-warning" @click="deleteVault(myVault._id)">Delete This Vault</button>
       </div>
+
     </div>
+    </ul>
   </div>
 </template>
+
+
 <script>
   export default {
     name: 'keeps',
@@ -80,7 +86,10 @@
   .fb {
     display: flex;
     flex-direction: row;
-    border: 1px solid red;
     flex-wrap: wrap;
+    justify-content: space-around;
+    width: 200px;
+    border: 1px solid red;
+
   }
 </style>

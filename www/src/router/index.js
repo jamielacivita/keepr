@@ -4,10 +4,10 @@ import Hello from '@/components/Hello'
 import register from '@/components/register'
 import login from '@/components/login'
 import createKeep from '@/components/createKeep'
-import readKeeps from '@/components/readKeeps'
+// import readKeeps from '@/components/readKeeps'
 import createVault from '@/components/createVault'
-import readVaults from '@/components/readVaults'
-import readVault from '@/components/readVault'
+// import readVaults from '@/components/readVaults'
+// import readVault from '@/components/readVault'
 import keeps from '@/components/keeps'
 import showKeep from '@/components/showKeep'
 import vaults from '@/components/vaults'
@@ -40,26 +40,26 @@ export default new Router({
       name: 'createKeep',
       component: createKeep
     },
-    {
-      path: '/readKeeps',
-      name: 'readKeeps',
-      component: readKeeps
-    },
+    // {
+    //   path: '/readKeeps',
+    //   name: 'readKeeps',
+    //   component: readKeeps
+    // },
     {
       path: '/createVault',
       name: 'createVault',
       component: createVault
     },
-    {
-      path: '/readVaults',
-      name: 'readVaults',
-      component: readVaults
-    },
-    {
-      path: '/readVault',
-      name: 'readVault',
-      component: readVault
-    },
+    // {
+    //   // path: '/readVaults',
+    //   // name: 'readVaults',
+    //   // component: readVaults
+    // },
+    // {
+    //   path: '/readVault',
+    //   name: 'readVault',
+    //   component: readVault
+    // },
     {
       path: '/keeps',
       component: keeps,

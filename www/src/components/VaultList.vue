@@ -1,24 +1,25 @@
 <template>
   <div class="vaults">
-    <h1>vaults</h1>
-    <!--<div> {{myvaults}} </div>-->
+    <h1>My Vaults</h1>
+    <!--<div> Debug: {{myvaults}} </div>-->
 
-    <ul id="publicVaults" class="fb">
-      <!--<li v-for="(item, index) in $root.store.state.myVaults">-->
-<li v-for="(item, index) in userVaults($root.store.state.myVaults)">
+    <ul id="vaults" class="fb">
+      <li v-for="(item, index) in userVaults($root.store.state.myVaults)">
         <div class="card">
           <div class="cardOutline">
             <div class="card-block">
               <h4 class="card-title">{{item.name}}</h4>
               <p class="card-text">{{item.description}}</p>
-              <p class="card-text">{{item._id}}</p>
+              <!--<p class="card-text">Debug: {{item._id}}</p>-->
               <ul>
                 <li v-for="(item, index) in item.keeps">
-                <img class="card-img-top" :src=item.imageUrl width="300px" alt="Card image cap">
-                <div>{{item.title}}</div>
+                  <img class="card-img-top" :src=item.imageUrl width="300px" alt="Card image cap">
+                  <div>{{item.title}}</div>
                 </li>
               </ul>
-              <a class="btn btn-primary"><router-link v-bind:to='"/vaults/"+item._id'>Go To This Vault.</router-link></a>
+              <a class="btn btn-primary">
+                <router-link v-bind:to='"/vaults/"+item._id'>Go To This Vault.</router-link>
+              </a>
             </div>
           </div>
         </div>
@@ -37,8 +38,7 @@
     },
     methods:
     {
-
-      userVaults: function(arr_vaults) {
+      userVaults: function (arr_vaults) {
         this.out_array = arr_vaults.filter(element => {
           console.debug("element: ", element)
           console.debug("element user id: ", element.userId)
@@ -47,18 +47,9 @@
           if (element.userId == this.$root.store.state.user._id) { return true }
           else { return false }
         })
-        console.debug("out array: ",this.out_array)
+        console.debug("out array: ", this.out_array)
         return this.out_array;
-},
-
-
-
-
-
-
-
-
-
+      },
     },
     mounted: function () {
       console.debug("Inside the vaults mounted function.")
@@ -103,7 +94,7 @@
   .fb {
     display: flex;
     flex-direction: row;
-    border: 1px solid red;
+    justify-content: space-around;
     flex-wrap: wrap;
   }
 </style>

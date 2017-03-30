@@ -1,53 +1,43 @@
 <template>
   <div class="keeps">
-    <h1>Show Keep</h1>
-    <div> {{myKeeps}} </div>
-
+    <h1>{{myKeeps.title}}</h1>
+    <!--<div>Debug: {{myKeeps}} </div>-->
     <ul id="publicKeeps" class="fb">
-      <!--<div class="card" style="width: 320px">-->
       <div class="card" style="">
         <div class="cardOutline">
           <img class="card-img-top" :src=myKeeps.imageUrl width="90%" alt="Card image cap">
-          <!--<img class="card-img-top" :src=myKeeps.imageUrl width="300px" alt="Card image cap">-->
           <div class="card-block">
-            <h4 class="card-title">{{myKeeps.title}}</h4>
             <p class="card-text">{{myKeeps.tags}}</p>
-            <a v-on:click="openVaults(item)" class="btn btn-primary">Vault Me.</a>
+            <a v-on:click="openVaults(item)" class="btn btn-primary">Vault Me!</a>
           </div>
         </div>
       </div>
     </ul>
 
-    <h1> Show users vaults here </h1>
-    <!--<h3>{{$root.store.state.myVaults}}</h3>-->
 
 <!--<h1>debugstuff</h1>
+<h3>{{$root.store.state.myVaults}}</h3>
 {{$root.store.state.user._id}}
 {{$root.store.state.myVaults}}
 <h1>debugstuff</h1>-->
 
+<!--This section is where the vault cards show. -->
     <div v-if="showVaultCards">
       <ul id="publicVaults" class="fb">
         <li v-for="(item, index) in userVaults($root.store.state.myVaults)">
           <div class="card" style="width: 320px">
             <div class="cardOutline">
-              <!--<img class="card-img-top" :src=item.imageUrl width="300px" alt="Card image cap">-->
               <div class="card-block">
                 <h4 class="card-title">{{item.name}}</h4>
                 <p class="card-text">{{item.description}}</p>
                 <p class="card-text">User Id: {{item.userId}}</p>
-                <!--<a class="btn btn-primary"><router-link v-bind:to=item._id>Send To Here</router-link></a>-->
-                <a v-on:click="sendToKeep(myKeeps,item._id)" class="btn btn-primary">Vault Me.</a>
-                <!--<router-link to="58dadb81330fa500c49ad41e">RouterLinkButton</router-link>-->
+                <a v-on:click="sendToKeep(myKeeps,item._id)" class="btn btn-primary">To This Vault</a>
               </div>
             </div>
           </div>
         </li>
       </ul>
     </div>
-
-<!--<div v-for="(job,i) in fourStroke(activeJobs)" draggable="true" @dragstart.capture="drag(job)">-->
-
   </div>
 </template>
 
@@ -129,7 +119,7 @@
   .fb {
     display: flex;
     flex-direction: row;
-    border: 1px solid red;
     flex-wrap: wrap;
+    justify-content: space-around;
   }
 </style>

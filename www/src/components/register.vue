@@ -1,26 +1,15 @@
 <template>
   <div class="register">
     <h1>Register Page</h1>
-    <!--<button @click.prevent="register()">Test Reg Func.</button>-->
-
-    <!--<form>
-      name: <input v-model="name" placeholder="name"><br> 
-      email: <input v-model="email" placeholder="e-mail"><br> 
-      password: <input v-model="password" placeholder="password"><br>
-      <button type="submit" name="action" @click.prevent="register()">Submit</button>
-    </form>-->
 
 
-    <div class="tab-content">
-      <div id="home" class="tab-pane fade in active">
         <form>
           <input class="inputField" v-model="name" placeholder="  name"><br>
           <input class="inputField" v-model="email" placeholder="  e-mail"><br>
           <input class="inputField" v-model="password" placeholder="  password"><br>
-          <button type="submit" name="action" @click.prevent="register()">Submit</button>
+          <button class="btn btn-primary button" type="submit" name="action" @click.prevent="register()">Submit</button>
         </form>
-      </div>
-      </div>
+
 
 
   </div>
@@ -74,4 +63,6 @@
   a {
     color: #42b983;
   }
+
+  .button{margin-top: 15px;}
 </style>

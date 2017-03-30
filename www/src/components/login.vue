@@ -1,17 +1,16 @@
 <template>
   <div class="login">
 
-    <h1>{{$root.store.state.loginMessage}}</h1>
+    <h1>Hello</h1>
+    <!--<h1>Hello : {{$root.store.state.loginMessage}}</h1>-->
 
-    <div class="tab-content">
-      <div id="home" class="tab-pane fade in active">
+
         <form>
           <input class="inputField" v-model="email" placeholder="  e-mail"><br>
           <input class="inputField" v-model="password" placeholder="  password"><br>
-          <button type="submit" name="action" @click.prevent="login()">Submit</button>
+          <button class="btn btn-primary button" type="submit" name="action" @click.prevent="login()">Submit</button>
         </form>
-      </div>
-      </div>
+
     </div>
 </template>
 
@@ -20,8 +19,12 @@
     name: 'login',
     data() {
       return {
+        // email: '',
+        // password: ''
         email: '',
         password: 'sunfish'
+        // email: 'JCLacivita@gmail.com',
+        // password: 'sunfish'
       }
     },
     methods:
