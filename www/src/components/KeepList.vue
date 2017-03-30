@@ -1,7 +1,25 @@
 <template>
   <div class="keeps">
-      <h1>Keeps</h1>
-      <div> {{myKeeps}} </div>
+    <h1>Keeps</h1>
+    <!--<div> {{myKeeps}} </div>-->
+
+    <ul id="publicKeeps" class="fb">
+      <li v-for="(item, index) in $root.store.state.myKeeps">
+        <div class="card" style="width: 320px">
+          <div class="cardOutline">
+            <img class="card-img-top" :src=item.imageUrl width="300px" alt="Card image cap">
+            <div class="card-block">
+              <h4 class="card-title">{{item.title}}</h4>
+              <p class="card-text">{{item.tags}}</p>
+              <a v-on:click="storeKeep(item)" class="btn btn-primary">Vault Me.</a>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+
+
+
   </div>
 </template>
 
@@ -18,13 +36,13 @@
     },
     mounted: function () {
       console.log("Hello World.")
-    this.$root.store.actions.flyerGetKeeps(this.$route.params.id)
-  },
-  computed:{
-    myKeeps(){
-      return this.$root.store.state.myKeeps
+      this.$root.store.actions.flyerGetKeeps(this.$route.params.id)
+    },
+    computed: {
+      myKeeps() {
+        return this.$root.store.state.myKeeps
+      }
     }
-  }
 
   }
 

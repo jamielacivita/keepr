@@ -9,7 +9,9 @@ import createVault from '@/components/createVault'
 import readVaults from '@/components/readVaults'
 import readVault from '@/components/readVault'
 import keeps from '@/components/keeps'
+import vaults from '@/components/vaults'
 import keepList from '@/components/KeepList'
+import vaultList from '@/components/VaultList'
 
 
 Vue.use(Router)
@@ -73,6 +75,27 @@ export default new Router({
         // {
         //   // path:":id",
         //   // name:"keeps.show",
+        //   // component:showKeep
+        // }
+      ]
+    },
+    {
+      path: '/vaults',
+      component: vaults,
+      children:[
+        {
+          path:'',
+          name:'vaults',
+          component:vaultList
+        },
+        {
+          path:'new', // NO SLASH IN FRONT!!!
+          name:'vaults.new',
+          component:createVault
+        },
+        // {
+        //   // path:":id",
+        //   // name:"vaults.show",
         //   // component:showKeep
         // }
       ]

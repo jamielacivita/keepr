@@ -212,8 +212,17 @@ export default {
           console.debug("data returned: ", res)
           state.myKeeps = res.data.data;
         }).catch(handleError)
-    }
+    },
 
+    flyerGetVaults(id)
+    {
+      console.debug("In Flyer Get Valuts with: ", id)
+      api.get('vaults/')
+        .then(res => {
+          console.debug("data returned: ", res)
+          state.myVaults = res.data.data;
+        }).catch(handleError)
+    },
 
 
   }
