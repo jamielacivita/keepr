@@ -1,8 +1,6 @@
 <template>
   <div class="createKeep">
     <h1>Create Keep Page</h1>
-    <!--<button @click.prevent="createKeep()">Test Make Keep Func.</button>-->
-    <!--<button @click.prevent="getKeeps()">Test Get Keeps</button>-->
 
     <div class="frame">
 
@@ -44,7 +42,7 @@
     methods:
     {
       createKeep() {
-
+        console.debug("Inside create keep method.")
 
         //console.debug("inside the create Keep method on the local page.")
 
@@ -53,7 +51,8 @@
         obj_keep.imageUrl = this.imageUrl;
         obj_keep.articleLink = this.articleLink;
         obj_keep.tags = this.tags;
-        obj_keep.userId = this.$root.store.state.user._id
+        // obj_keep.userId = this.$root.store.state.user._id
+        obj_keep.userId = '58dabb34344e520d18cbfa3e'
 
         this.$root.store.actions.createKeep(obj_keep)
 

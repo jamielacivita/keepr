@@ -1,24 +1,24 @@
 <template>
   <div class="keeps">
-    <h1>Keeps</h1>
-    <!--<div> {{myKeeps}} </div>-->
+    <h1>Show Keep</h1>
+    <div> {{myKeeps}} </div>
 
     <ul id="publicKeeps" class="fb">
-      <li v-for="(item, index) in $root.store.state.myKeeps">
-        <div class="card" style="width: 320px">
+        <!--<div class="card" style="width: 320px">-->
+        <div class="card" style="">
           <div class="cardOutline">
-            <img class="card-img-top" :src=item.imageUrl width="300px" alt="Card image cap">
+            <img class="card-img-top" :src=myKeeps.imageUrl width="90%" alt="Card image cap">
+            <!--<img class="card-img-top" :src=myKeeps.imageUrl width="300px" alt="Card image cap">-->
             <div class="card-block">
-              <h4 class="card-title">{{item.title}}</h4>
-              <p class="card-text">{{item.tags}}</p>
-              <a class="btn btn-primary"><router-link v-bind:to=item._id>Select Me.</router-link></a>
-              <!--<a v-on:click="storeKeep(item)" class="btn btn-primary">Vault Me.</a>-->
-              <!--<router-link to="58dadb81330fa500c49ad41e">RouterLinkButton</router-link>-->
+              <h4 class="card-title">{{myKeeps.title}}</h4>
+              <p class="card-text">{{myKeeps.tags}}</p>
+              <a v-on:click="storeKeep(item)" class="btn btn-primary">Vault Me.</a>
             </div>
           </div>
         </div>
-      </li>
     </ul>
+
+<h1> Show users keeps here </h1>
 
 
 
@@ -37,8 +37,9 @@
     {
     },
     mounted: function () {
-      console.log("Hello World.")
-      this.$root.store.actions.flyerGetKeeps(this.$route.params.id)
+      console.log("Hello World from show keep.")
+      console.log("params.id: ", this.$route.params.id)
+      this.$root.store.actions.flyerGetKeep(this.$route.params.id)
     },
     computed: {
       myKeeps() {

@@ -214,6 +214,16 @@ export default {
         }).catch(handleError)
     },
 
+    flyerGetKeep(id)
+    {
+      console.debug("In Flyer Get Keep with: ", id)
+      api.get('keeps/'+id)
+        .then(res => {
+          console.debug("data returned: ", res)
+          state.myKeeps = res.data.data;
+        }).catch(handleError)
+    },
+
     flyerGetVaults(id)
     {
       console.debug("In Flyer Get Valuts with: ", id)

@@ -1,7 +1,7 @@
 <template>
 
-  <div class="keep-container">
-    <h2>    Keeps: {{$route.name}}
+  <div class="vault-container">
+    <h2>    Vaults: {{$route.name}}
 </h2>
     <router-view></router-view>
   </div>

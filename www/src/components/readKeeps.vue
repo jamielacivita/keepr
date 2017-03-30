@@ -13,7 +13,8 @@
               <h4 class="card-title">{{item.title}}</h4>
               <p class="card-text">{{item.tags}}</p>
               <!--<a href="#" class="btn btn-primary">Keep</a>-->
-              <a v-on:click="storeKeep(item)" class="btn btn-primary">Vault Me.</a>
+              <a v-on:click="storeKeep(item)" class="btn btn-primary">Vault Me to the moon.</a>
+              <button><router-link to="/58dadb81330fa500c49ad41e">Flying Link</router-link></button>
               <!--<a href="#" class="btn btn-primary">Else</a>-->
             </div>
           </div>

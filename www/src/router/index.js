@@ -9,6 +9,7 @@ import createVault from '@/components/createVault'
 import readVaults from '@/components/readVaults'
 import readVault from '@/components/readVault'
 import keeps from '@/components/keeps'
+import showKeep from '@/components/showKeep'
 import vaults from '@/components/vaults'
 import keepList from '@/components/KeepList'
 import vaultList from '@/components/VaultList'
@@ -72,11 +73,11 @@ export default new Router({
           name:'keeps.new',
           component:createKeep
         },
-        // {
-        //   // path:":id",
-        //   // name:"keeps.show",
-        //   // component:showKeep
-        // }
+        {
+          path:":id",
+          name:"keeps.show",
+          component:showKeep
+        }
       ]
     },
     {
