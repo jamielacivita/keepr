@@ -1,7 +1,32 @@
 <template>
   <div class="vaults">
-      <h1>vaults</h1>
-      <div> {{myvaults}} </div>
+    <h1>vaults</h1>
+    <!--<div> {{myvaults}} </div>-->
+
+    <ul id="publicVaults" class="fb">
+      <li v-for="(item, index) in $root.store.state.myVaults">
+        <div class="card">
+          <div class="cardOutline">
+            <div class="card-block">
+              <h4 class="card-title">{{item.name}}</h4>
+              <p class="card-text">{{item.description}}</p>
+              <ul>
+                <li v-for="(item, index) in item.keeps">
+                <img class="card-img-top" :src=item.imageUrl width="300px" alt="Card image cap">
+                <div>{{item.title}}</div>
+                </li>
+              </ul>
+
+
+
+              <!--<a v-on:click="sendToKeep(myKeeps,item._id)" class="btn btn-primary">Vault Me.</a>-->
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+
+
   </div>
 </template>
 
@@ -18,13 +43,13 @@
     },
     mounted: function () {
       console.log("Hello World.")
-    this.$root.store.actions.flyerGetVaults(this.$route.params.id)
-  },
-  computed:{
-    myvaults(){
-      return this.$root.store.state.myVaults
+      this.$root.store.actions.flyerGetVaults(this.$route.params.id)
+    },
+    computed: {
+      myvaults() {
+        return this.$root.store.state.myVaults
+      }
     }
-  }
 
   }
 

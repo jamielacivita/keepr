@@ -18,10 +18,25 @@
         </div>
     </ul>
 
-<h1> Show users keeps here </h1>
+<h1> Show users vaults here </h1>
+<!--<h3>{{$root.store.state.myVaults}}</h3>-->
 
-
-
+    <ul id="publicVaults" class="fb">
+      <li v-for="(item, index) in $root.store.state.myVaults">
+        <div class="card" style="width: 320px">
+          <div class="cardOutline">
+            <!--<img class="card-img-top" :src=item.imageUrl width="300px" alt="Card image cap">-->
+            <div class="card-block">
+              <h4 class="card-title">{{item.name}}</h4>
+              <p class="card-text">{{item.description}}</p>
+              <!--<a class="btn btn-primary"><router-link v-bind:to=item._id>Send To Here</router-link></a>-->
+              <a v-on:click="sendToKeep(myKeeps,item._id)" class="btn btn-primary">Vault Me.</a>
+              <!--<router-link to="58dadb81330fa500c49ad41e">RouterLinkButton</router-link>-->
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -35,18 +50,24 @@
     },
     methods:
     {
+      sendToKeep : function(keep_obj, vaultId)
+      {
+        console.debug("In sendToKeep with keep object", keep_obj)
+        console.debug("In sendToKeep with vaultId", vaultId)
+        this.$root.store.actions.setKeepToVault(keep_obj, vaultId)
+      }
     },
     mounted: function () {
       console.log("Hello World from show keep.")
       console.log("params.id: ", this.$route.params.id)
       this.$root.store.actions.flyerGetKeep(this.$route.params.id)
+      this.$root.store.actions.getVaults()
     },
     computed: {
       myKeeps() {
         return this.$root.store.state.myKeeps
       }
     }
-
   }
 
 </script>
