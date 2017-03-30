@@ -18,15 +18,12 @@
                 <div>{{item.title}}</div>
                 </li>
               </ul>
-              <!--<a v-on:click="sendToKeep(myKeeps,item._id)" class="btn btn-primary">Vault Me.</a>-->
+              <a class="btn btn-primary"><router-link v-bind:to='"/vaults/"+item._id'>Go To This Vault.</router-link></a>
             </div>
           </div>
         </div>
       </li>
     </ul>
-
-<router-link to="/keeps">Go To Keeps</router-link>
-
   </div>
 </template>
 

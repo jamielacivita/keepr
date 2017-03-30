@@ -233,10 +233,20 @@ export default {
 
     flyerGetVault(id) {
       console.debug("In Flyer Get Valut with: ", id)
-      api.get('vaults/'+id)
+      api.get('vaults/' + id)
         .then(res => {
           console.debug("data returned: ", res)
           state.myVaults = res.data.data;
+        }).catch(handleError)
+    },
+
+    deleteVault(id) {
+      console.debug("In store delete vault method with: ", id)
+      api.delete('vaults/' + id)
+        .then(res => {
+          console.debug("data returned: ", res)
+          state.myVaults = res.data.data;
+          router.push({ path: '/vaults/' })
         }).catch(handleError)
     },
 

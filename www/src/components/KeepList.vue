@@ -1,11 +1,7 @@
 <template>
   <div class="keeps">
     <h1>Keeps</h1>
-    <!--<div> {{myKeeps}} </div>-->
-
-<router-link to="/keeps/new">Make a new Keep</router-link>
-<hr>
-<router-link to="/vaults">Go to my Vaults</router-link>
+    <!--<div>Debug: {{myKeeps}} </div>-->
 
     <ul id="publicKeeps" class="fb">
       <li v-for="(item, index) in $root.store.state.myKeeps">
@@ -16,8 +12,6 @@
               <h4 class="card-title">{{item.title}}</h4>
               <p class="card-text">{{item.tags}}</p>
               <a class="btn btn-primary"><router-link v-bind:to='"/keeps/"+item._id'>Select Me.</router-link></a>
-              <!--<a v-on:click="storeKeep(item)" class="btn btn-primary">Vault Me.</a>-->
-              <!--<router-link to="58dadb81330fa500c49ad41e">RouterLinkButton</router-link>-->
             </div>
           </div>
         </div>

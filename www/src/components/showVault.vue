@@ -2,8 +2,6 @@
   <div class="keeps">
     <h1>Show Vault</h1>
     <!--<div> Debug:  {{myVault}} </div>-->
-
-
     <div class="card">
       <div class="cardOutline">
         <div class="card-block">
@@ -12,19 +10,16 @@
           <p class="card-text">Debug: {{myVault._id}}</p>
           <ul>
             <li v-for="(item, index) in myVault.keeps">
-              <img class="card-img-top" :src=item.imageUrl width="300px" alt="Card image cap">
+              <img class="card-img-top" :src=item.imageUrl alt="Card image cap">
               <div>{{item.title}}</div>
               </li>
           </ul>
         </div>
+        <button @click="deleteVault(myVault._id)">Delete This Vault</button>
       </div>
     </div>
-
-
-
   </div>
 </template>
-
 <script>
   export default {
     name: 'keeps',
@@ -36,26 +31,9 @@
     },
     methods:
     {
-      sendToKeep: function (keep_obj, vaultId) {
-        console.debug("In sendToKeep with keep object", keep_obj)
-        console.debug("In sendToKeep with vaultId", vaultId)
-        this.$root.store.actions.setKeepToVault(keep_obj, vaultId)
-      },
-      userVaults: function (arr_vaults) {
-        this.out_array = arr_vaults.filter(element => {
-          console.debug("element: ", element)
-          console.debug("element user id: ", element.userId)
-          console.debug("user id: ", this.$root.store.state.user._id)
-
-          if (element.userId == this.$root.store.state.user._id) { return true }
-          else { return false }
-        })
-        console.debug("out array: ", this.out_array)
-        return this.out_array;
-      },
-      openVaults: function () {
-        console.debug("In open vaults function.")
-        this.showVaultCards = !this.showVaultCards;
+      deleteVault: function (id) {
+        console.debug("In delete vault function with: ", id)
+        this.$root.store.actions.deleteVault(id)
       }
     },
     mounted: function () {
