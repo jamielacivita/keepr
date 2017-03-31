@@ -8,20 +8,24 @@
           <img class="card-img-top" :src=myKeeps.imageUrl width="90%" alt="Card image cap">
           <div class="card-block">
             <p class="card-text">{{myKeeps.tags}}</p>
+            <!--{{myKeeps.userId}} {{$root.store.state.user._id}}-->
             <a v-on:click="openVaults(item)" class="btn btn-primary">Vault Me!</a>
+            <span v-if="myKeeps.userId == $root.store.state.user._id">
+            <a v-on:click="deleteKeep(myKeeps)" class="btn btn-warning">Delete Me.</a>
+            </span>
           </div>
         </div>
       </div>
     </ul>
 
 
-<!--<h1>debugstuff</h1>
+    <!--<h1>debugstuff</h1>
 <h3>{{$root.store.state.myVaults}}</h3>
 {{$root.store.state.user._id}}
 {{$root.store.state.myVaults}}
 <h1>debugstuff</h1>-->
 
-<!--This section is where the vault cards show. -->
+    <!--This section is where the vault cards show. -->
     <div v-if="showVaultCards">
       <ul id="publicVaults" class="fb">
         <li v-for="(item, index) in userVaults($root.store.state.myVaults)">
@@ -57,28 +61,37 @@
         console.debug("In sendToKeep with vaultId", vaultId)
         this.$root.store.actions.setKeepToVault(keep_obj, vaultId)
       },
-      userVaults: function(arr_vaults) {
+      userVaults: function (arr_vaults) {
         this.out_array = arr_vaults.filter(element => {
-          console.debug("element: ", element)
-          console.debug("element user id: ", element.userId)
-          console.debug("user id: ", this.$root.store.state.user._id)
-
           if (element.userId == this.$root.store.state.user._id) { return true }
           else { return false }
         })
-        console.debug("out array: ",this.out_array)
+        console.debug("out array: ", this.out_array)
         return this.out_array;
-},
+      },
       openVaults: function () {
         console.debug("In open vaults function.")
         this.showVaultCards = !this.showVaultCards;
+      },
+
+      deleteKeep: function (keep_obj) {
+        console.debug("In delete Keep function with: ",  keep_obj)
+        this.$root.store.actions.deleteKeep(keep_obj._id)
       }
     },
     mounted: function () {
-      console.log("Hello World from show keep.")
-      console.log("params.id: ", this.$route.params.id)
+
+      this.$nextTick(function () {
+        console.debug("In next tick");
+
+      })
+
+      console.debug("Hello World from show keep.")
+      console.debug("params.id: ", this.$route.params.id)
       this.$root.store.actions.flyerGetKeep(this.$route.params.id)
       this.$root.store.actions.getVaults()
+      this.$root.store.actions.incrementViews(this.$route.params.id)
+
     },
     computed: {
       myKeeps() {
@@ -105,10 +118,10 @@
     display: block;
     margin: 0 10px;
   }
-  
+  /*  
   a {
     color: #42b983;
-  }
+  }*/
   
   .cardOutline {
     border: 1px solid black;

@@ -61,8 +61,9 @@ export default {
       api.post('keeps', obj_keep)
         .then(res => {
           state.keeps = res.data.data;
+          state.myKeeps.push(state.keeps)
         }).catch(handleError)
-       router.push({ path: '/keeps/' })
+      router.push({ path: '/keeps/' })
     },
 
     createVault(obj_vault) {
@@ -97,6 +98,7 @@ export default {
             .then(res => {
             }).catch(handleError)
         }).catch(handleError)
+      //router.push({ path: '/vaults/' })
     },
 
     sendToCurrentVault() {
@@ -147,6 +149,27 @@ export default {
           console.debug("data returned: ", res)
           state.myVaults = res.data.data;
           router.push({ path: '/vaults/' })
+        }).catch(handleError)
+    },
+
+    deleteKeep(id) {
+      console.debug("In store delete keep method with: ", id)
+      api.delete('keeps/' + id)
+        .then(res => {
+          console.debug("data returned: ", res)
+          state.myVaults = res.data.data;
+          router.push({ path: '/keeps/' })
+        }).catch(handleError)
+    },
+
+    incrementViews(id) {
+      api.get('keeps/' + id)
+        .then(res => {
+            let obj_keep = res.data.data
+            obj_keep.views = obj_keep.views + 1;
+          api.put('keeps/' + id, obj_keep)
+            .then(res => {
+            }).catch(handleError)
         }).catch(handleError)
     },
   }

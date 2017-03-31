@@ -5,13 +5,16 @@
     <!--<div>Debug: {{myKeeps}} </div>-->
 
     <ul id="publicKeeps" class="fb">
-      <li v-for="(item, index) in $root.store.state.myKeeps">
+      <!--<li v-for="(item, index) in $root.store.state.myKeeps">-->
+      <li v-for="(item, index) in myKeeps">
         <div class="card" style="width: 320px">
           <div class="cardOutline">
             <img class="card-img-top" :src=item.imageUrl width="300px" alt="Card image cap">
             <div class="card-block">
               <h4 class="card-title">{{item.title}}</h4>
               <p class="card-text">{{item.tags}}</p>
+              <p class="card-text">Views: {{item.views}}</p>
+              <p class="card-text">Vaulted: {{item.timesVaulted}}</p>
               <router-link v-bind:to='"/keeps/"+item._id' class="btn btn-primary">View</router-link>
             </div>
           </div>
@@ -33,7 +36,7 @@
     {
     },
     mounted: function () {
-      console.log("Hello World.")
+      console.log("Hello World from KeepList.vue.")
       this.$root.store.actions.flyerGetKeeps(this.$route.params.id)
     },
     computed: {
