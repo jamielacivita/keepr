@@ -99,6 +99,7 @@ export default {
             }).catch(handleError)
         }).catch(handleError)
       //router.push({ path: '/vaults/' })
+      this.incrementVaults(keep_obj._id)
     },
 
     sendToCurrentVault() {
@@ -167,6 +168,17 @@ export default {
         .then(res => {
             let obj_keep = res.data.data
             obj_keep.views = obj_keep.views + 1;
+          api.put('keeps/' + id, obj_keep)
+            .then(res => {
+            }).catch(handleError)
+        }).catch(handleError)
+    },
+
+    incrementVaults(id) {
+      api.get('keeps/' + id)
+        .then(res => {
+            let obj_keep = res.data.data
+            obj_keep.timesVaulted = obj_keep.timesVaulted + 1;
           api.put('keeps/' + id, obj_keep)
             .then(res => {
             }).catch(handleError)
