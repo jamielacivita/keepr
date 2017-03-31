@@ -15,7 +15,7 @@ let base = axios.create({
 
 // REGISTER ALL DATA HERE
 let state = {
-  loginMessage: 'Please Login.',
+  loginMessage: '',
   user: {},
   myVaults: {},
   myKeeps: {},
@@ -103,21 +103,21 @@ export default {
     },
 
     sendToCurrentVault() {
-      console.debug("In send to CurrentVault in store.")
+      //console.debug("In send to CurrentVault in store.")
       router.push({ name: 'readVault' })
     },
 
     flyerGetKeeps(id) {
-      console.debug("In Flyer Get Keeps with: ", id)
+      //console.debug("In Flyer Get Keeps with: ", id)
       api.get('keeps/')
         .then(res => {
-          console.debug("data returned: ", res)
+          //console.debug("data returned: ", res)
           state.myKeeps = res.data.data;
         }).catch(handleError)
     },
 
     flyerGetKeep(id) {
-      console.debug("In Flyer Get Keep with: ", id)
+      //console.debug("In Flyer Get Keep with: ", id)
       api.get('keeps/' + id)
         .then(res => {
           console.debug("data returned: ", res)
@@ -126,7 +126,7 @@ export default {
     },
 
     flyerGetVaults(id) {
-      console.debug("In Flyer Get Valuts with: ", id)
+      //console.debug("In Flyer Get Valuts with: ", id)
       api.get('vaults/')
         .then(res => {
           console.debug("data returned: ", res)
@@ -135,7 +135,7 @@ export default {
     },
 
     flyerGetVault(id) {
-      console.debug("In Flyer Get Valut with: ", id)
+      //console.debug("In Flyer Get Valut with: ", id)
       api.get('vaults/' + id)
         .then(res => {
           console.debug("data returned: ", res)
@@ -144,7 +144,7 @@ export default {
     },
 
     deleteVault(id) {
-      console.debug("In store delete vault method with: ", id)
+      //console.debug("In store delete vault method with: ", id)
       api.delete('vaults/' + id)
         .then(res => {
           console.debug("data returned: ", res)
@@ -154,7 +154,7 @@ export default {
     },
 
     deleteKeep(id) {
-      console.debug("In store delete keep method with: ", id)
+      //console.debug("In store delete keep method with: ", id)
       api.delete('keeps/' + id)
         .then(res => {
           console.debug("data returned: ", res)

@@ -11,6 +11,7 @@
     <router-link to="/keeps/new" class="btn btn-primary">Make New Keep</router-link>
     <router-link to="/vaults" class="btn btn-primary">Go To Vaults</router-link>
     <router-link to="/vaults/new" class="btn btn-primary">Make New Vault</router-link>
+    <router-link to="/login" class="btn btn-primary">Logout</router-link>
     </div>
 
     <router-view></router-view>

@@ -36,7 +36,6 @@
     {
     },
     mounted: function () {
-      console.log("Hello World from KeepList.vue.")
       this.$root.store.actions.flyerGetKeeps(this.$route.params.id)
     },
     computed: {
