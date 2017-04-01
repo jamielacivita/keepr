@@ -66,7 +66,7 @@
           if (element.userId == this.$root.store.state.user._id) { return true }
           else { return false }
         })
-        console.debug("out array: ", this.out_array)
+        //console.debug("out array: ", this.out_array)
         return this.out_array;
       },
       openVaults: function () {

@@ -4,12 +4,14 @@
     <!--<div> {{myvaults}} </div>-->
 
     <ul id="publicVaults" class="fb">
-      <li v-for="(item, index) in $root.store.state.myVaults">
+      <li v-for="(item, index) in userVaults($root.store.state.myVaults)">
         <div class="card">
           <div class="cardOutline">
             <div class="card-block">
+              userId: {{item.userId}}
               <h4 class="card-title">{{item.name}}</h4>
               <p class="card-text">{{item.description}}</p>
+              <!--List Keeps on Vault-->
               <ul>
                 <li v-for="(item, index) in item.keeps">
                 <img class="card-img-top" :src=item.imageUrl width="300px" alt="Card image cap">
@@ -37,6 +39,17 @@
     },
     methods:
     {
+
+      userVaults: function (arr_vaults) {
+        this.out_array = arr_vaults.filter(element => {
+          if (element.userId == this.$root.store.state.user._id) { return true }
+          else { return false }
+        })
+        console.debug("out array: ", this.out_array)
+        return this.out_array;
+      },
+
+
     },
     mounted: function () {
       console.log("Hello World.")
