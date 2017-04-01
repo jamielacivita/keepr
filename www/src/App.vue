@@ -7,9 +7,9 @@
 
     <div v-if="$root.store.state.user.name">
     <h4>Logged in as: {{$root.store.state.user.name}} ({{$root.store.state.user.email}})</h4>
-    <router-link to="/keeps" class="btn btn-primary">Go To Keeps</router-link>
+    <router-link v-if="showKeepsButton()" to="/keeps" class="btn btn-primary">Go To Keeps</router-link>
     <router-link to="/keeps/new" class="btn btn-primary">Make New Keep</router-link>
-    <router-link to="/vaults" class="btn btn-primary">Go To Vaults</router-link>
+    <router-link v-if="userHasVaults()" to="/vaults" class="btn btn-primary">Go To Vaults</router-link>
     <router-link to="/vaults/new" class="btn btn-primary">Make New Vault</router-link>
     <router-link to="/login" class="btn btn-primary">Logout</router-link>
     </div>
@@ -54,6 +54,28 @@
 
         this.$root.store.actions.register(register_object)
       },
+
+      userHasVaults() {
+        let vaults = this.$root.store.state.myVaults;
+        let user = this.$root.store.state.user;
+        for (var i = 0; i < vaults.length; i++)
+        {
+          let vault = vaults[i];
+          if (vault.userId == user._id)
+          {return true;}
+        }
+        return false;
+      },
+
+      showKeepsButton() {
+        let route = this.$route.fullPath;
+        if (route == '/keeps') {return false;}
+        else {return true;};
+      },
+    },
+    mounted: function(){
+      this.$root.store.actions.flyerGetVaults()
+
     }
   }
 
