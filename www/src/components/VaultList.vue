@@ -1,6 +1,6 @@
 <template>
   <div class="vaults">
-    <h1>vaults</h1>
+    <h1>My Vaults</h1>
     <!--<div> {{myvaults}} </div>-->
 
     <ul id="publicVaults" class="fb">
@@ -8,7 +8,6 @@
         <div class="card">
           <div class="cardOutline">
             <div class="card-block">
-              userId: {{item.userId}}
               <h4 class="card-title">{{item.name}}</h4>
               <p class="card-text">{{item.description}}</p>
               <!--List Keeps on Vault-->
@@ -93,9 +92,11 @@
   }
   
   .fb {
-    display: flex;
-    flex-direction: row;
-    border: 1px solid red;
-    flex-wrap: wrap;
+    /*display: flex;*/
+    /*flex-direction: row;*/
+    /*flex-wrap: wrap;*/
+    column-count: 3;
   }
+
+  .card {break-inside: avoid;}
 </style>
