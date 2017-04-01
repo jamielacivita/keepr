@@ -8,9 +8,9 @@
     <div v-if="$root.store.state.user.name">
     <h4>Logged in as: {{$root.store.state.user.name}} ({{$root.store.state.user.email}})</h4>
     <router-link v-if="showKeepsButton()" to="/keeps" class="btn btn-primary">Go To Keeps</router-link>
-    <router-link to="/keeps/new" class="btn btn-primary">Make New Keep</router-link>
+    <router-link v-if="showNewKeepButton()" to="/keeps/new" class="btn btn-primary">Make New Keep</router-link>
     <router-link v-if="userHasVaults()" to="/vaults" class="btn btn-primary">Go To Vaults</router-link>
-    <router-link to="/vaults/new" class="btn btn-primary">Make New Vault</router-link>
+    <router-link v-if="showNewVaultButton()" to="/vaults/new" class="btn btn-primary">Make New Vault</router-link>
     <router-link to="/login" class="btn btn-primary">Logout</router-link>
     </div>
 
@@ -56,15 +56,7 @@
       },
 
       userHasVaults() {
-        let vaults = this.$root.store.state.myVaults;
-        let user = this.$root.store.state.user;
-        for (var i = 0; i < vaults.length; i++)
-        {
-          let vault = vaults[i];
-          if (vault.userId == user._id)
-          {return true;}
-        }
-        return false;
+        return this.$root.store.actions.userHasVaults()
       },
 
       showKeepsButton() {
@@ -72,6 +64,23 @@
         if (route == '/keeps') {return false;}
         else {return true;};
       },
+
+      showNewKeepButton() {
+        let route = this.$route.fullPath;
+        let isGuest = this.$root.store.state.user.isGuest;
+        if (route == '/keeps/new') {return false;}
+        else if (isGuest) {return false;}
+        else {return true;};
+      },
+
+      showNewVaultButton() {
+        let route = this.$route.fullPath;
+        let isGuest = this.$root.store.state.user.isGuest;
+        if (route == '/vaults/new') {return false;}
+        else if (isGuest) {return false;}
+        else {return true;};
+      },
+
     },
     mounted: function(){
       this.$root.store.actions.flyerGetVaults()

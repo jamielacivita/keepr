@@ -17,6 +17,7 @@ let base = axios.create({
 let state = {
   loginMessage: '',
   user: {},
+  isGuest: false,
   myVaults: {},
   myKeeps: {},
   currentVaultId: '',
@@ -52,9 +53,16 @@ export default {
           }
           else {
             state.user = res.data.data
+            console.debug("state.user: ", state.user)
             router.push({ path: 'keeps/' })
           }
         }).catch(handleError)
+    },
+
+    guestLogin(){
+      state.user = {_id:'00000',name:' ', email:'guest',password:null}
+      state.user.isGuest = true;
+      router.push({ path: 'keeps/' })
     },
 
     createKeep(obj_keep) {
@@ -183,6 +191,20 @@ export default {
             .then(res => {
             }).catch(handleError)
         }).catch(handleError)
+    },
+
+    userHasVaults() {
+        let vaults = state.myVaults;
+        let user = state.user;
+        console.debug("vaults", vaults)
+        console.debug("user", user)
+        for (var i = 0; i < vaults.length; i++)
+        {
+          let vault = vaults[i];
+          if (vault.userId == user._id)
+          {return true;}
+        }
+        return false;
     },
   }
 }

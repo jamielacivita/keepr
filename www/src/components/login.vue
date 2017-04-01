@@ -9,6 +9,7 @@
       <input class="inputField" v-model="email" placeholder="  e-mail"><br>
       <input class="inputField" v-model="password" placeholder="  password"><br>
       <button class="btn btn-primary button" type="submit" name="action" @click.prevent="login()">Submit</button>
+      <button class="btn btn-primary button" type="submit" name="action" @click.prevent="guestLogin()">Guest Login</button>
     </form>
 
   </div>
@@ -30,11 +31,17 @@
 
     methods:
     {
+      
       login() {
         let login_object = {}
         login_object.email = this.email;
         login_object.password = this.password;
         this.$root.store.actions.login(login_object)
+      },
+      
+      guestLogin() {
+        let login_object = {}
+        this.$root.store.actions.guestLogin()
       }
     },
     mounted: function () {

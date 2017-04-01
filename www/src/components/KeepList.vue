@@ -7,7 +7,7 @@
     <ul id="publicKeeps" class="fb">
       <!--<li v-for="(item, index) in $root.store.state.myKeeps">-->
       <li v-for="(item, index) in myKeeps">
-        <div class="card" style="width: 320px">
+        <div class="card" style="width: 339px">
           <div class="cardOutline">
             <img class="card-img-top" :src=item.imageUrl width="300px" alt="Card image cap">
             <div class="card-block">

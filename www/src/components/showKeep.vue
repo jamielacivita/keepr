@@ -9,7 +9,7 @@
           <div class="card-block">
             <p class="card-text">{{myKeeps.tags}}</p>
             <!--{{myKeeps.userId}} {{$root.store.state.user._id}}-->
-            <a v-on:click="openVaults(item)" class="btn btn-primary">Vault Me!</a>
+            <a v-if="showVaultMeButton()" v-on:click="openVaults(item)" class="btn btn-primary">Vault Me!</a>
             <span v-if="myKeeps.userId == $root.store.state.user._id">
             <a v-on:click="deleteKeep(myKeeps)" class="btn btn-warning">Delete Me.</a>
             </span>
@@ -77,6 +77,10 @@
       deleteKeep: function (keep_obj) {
         console.debug("In delete Keep function with: ",  keep_obj)
         this.$root.store.actions.deleteKeep(keep_obj._id)
+      },
+
+      showVaultMeButton: function () {
+        return this.$root.store.actions.userHasVaults()
       }
     },
     mounted: function () {
