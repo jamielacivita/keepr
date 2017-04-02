@@ -1,27 +1,25 @@
 <template>
   <div class="keeps">
-    <h1>{{myVault.name}}</h1>
+    {{myVault[0]}}
+    <h1>{{myVault[0].name}}</h1>
     <!--<div> Debug:  {{myVault}} </div>-->
-        <ul id="publicKeeps" class="fb">
-
-    <div class="card">
-      <div class="cardOutline">
-        <div class="card-block">
-          <!--<h4 class="card-title">{{myVault.name}}</h4>-->
-          <p class="card-text">{{myVault.description}}</p>
-          <!--<p class="card-text">Debug: {{myVault._id}}</p>-->
-          <ul>
-            <li v-for="(item, index) in myVault.keeps">
-              <img class="card-img-top" :src=item.imageUrl alt="Card image cap">
-              <div>{{item.title}}</div>
-            </li>
-          </ul>
+    <div id="publicKeeps" class="fb">
+      <div class="card">
+        <div class="cardOutline">
+          <div class="card-block">
+            <p class="card-text">{{myVault[0].description}}</p>
+            <!--<p class="card-text">Debug: {{myVault._id}}</p>-->
+            <ul>
+              <li v-for="(item, index) in myVault[0].keeps">
+                <img class="card-img-top" :src=item.imageUrl alt="Card image cap">
+                <div>{{item.title}}</div>
+              </li>
+            </ul>
+          </div>
+          <button class="btn btn-warning" @click="deleteVault(myVault[0]._id)">Delete This Vault</button>
         </div>
-        <button class="btn btn-warning" @click="deleteVault(myVault._id)">Delete This Vault</button>
       </div>
-
     </div>
-    </ul>
   </div>
 </template>
 
@@ -46,6 +44,7 @@
       console.log("Hello World from show keep.")
       console.log("params.id: ", this.$route.params.id)
       this.$root.store.actions.flyerGetVault(this.$route.params.id)
+ 
     },
     computed: {
       myVault() {
@@ -72,7 +71,6 @@
     display: block;
     margin: 0 10px;
   }
-  
   /*a {
     color: #42b983;
   }*/
@@ -88,8 +86,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
-    width: 200px;
-    border: 1px solid red;
-
   }
+
+  img {max-width: 90%;}
 </style>

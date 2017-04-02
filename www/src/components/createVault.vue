@@ -10,7 +10,7 @@
             <!-- Form Fields for Createing Vaults -->
             <input class="inputField" v-model="name" placeholder="  Name"><br>
             <input class="inputField" v-model="description" placeholder="  description"><br>
-            <input class="inputField" v-model="imageUrl" placeholder="  imageUrl"><br>
+            <!--<input class="inputField" v-model="imageUrl" placeholder="  imageUrl"><br>-->
 
             <button class="btn btn-primary button" type="submit" name="action" @click.prevent="createVault()">Submit</button>
           </form>

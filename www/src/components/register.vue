@@ -1,16 +1,24 @@
 <template>
   <div class="register">
-    <h1>Register Page</h1>
+    <h1>Please Register as a New User</h1>
 
+<div class="frame">
+      <div class="tab-content">
+        <div id="home" class="tab-pane fade in active">
 
         <form>
           <input class="inputField" v-model="name" placeholder="  name"><br>
           <input class="inputField" v-model="email" placeholder="  e-mail"><br>
           <input class="inputField" v-model="password" placeholder="  password"><br>
+
           <button class="btn btn-primary button" type="submit" name="action" @click.prevent="register()">Submit</button>
+          <button class="btn btn-primary button" type="submit" name="action" @click.prevent="login()">Login</button>
+          <button class="btn btn-primary button" type="submit" name="action" @click.prevent="guestLogin()">Guest Login</button>
         </form>
 
-
+    </div>
+    </div>
+    </div>
 
   </div>
 </template>
@@ -36,7 +44,18 @@
         console.debug("registerObject: ", register_object)
 
         this.$root.store.actions.register(register_object)
-      }
+      },
+
+      guestLogin() {
+        let login_object = {}
+        this.$root.store.actions.guestLogin()
+      },
+
+      login() {
+        this.$root.store.actions.sendToLogin()
+      },
+
+
     }
 
   }

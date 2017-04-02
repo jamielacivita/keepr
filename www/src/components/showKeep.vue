@@ -19,7 +19,7 @@
     </ul>
 
 
-    <!--<h1>debugstuff</h1>
+<!--<h1>debugstuff</h1>
 <h3>{{$root.store.state.myVaults}}</h3>
 {{$root.store.state.user._id}}
 {{$root.store.state.myVaults}}
@@ -28,7 +28,7 @@
     <!--This section is where the vault cards show. -->
     <div v-if="showVaultCards">
       <ul id="publicVaults" class="fb">
-        <li v-for="(item, index) in userVaults($root.store.state.myVaults)">
+        <li v-for="item in userVaults(myVaults)">
           <div class="card" style="width: 320px">
             <div class="cardOutline">
               <div class="card-block">
@@ -59,6 +59,25 @@
       sendToKeep: function (keep_obj, vaultId) {
         console.debug("In sendToKeep with keep object", keep_obj)
         console.debug("In sendToKeep with vaultId", vaultId)
+        console.debug("my vaults: ", this.$root.store.state.myVaults)
+
+        let vaults = this.$root.store.state.myVaults;
+        for (var i = 0; i < vaults.length;i++)
+        {
+          let vault = vaults[i];
+          if (vault._id == vaultId)
+          {
+            console.debug("70:this is the vault you want: ", vault)
+            vault.keeps.push(keep_obj)
+          } 
+        }
+
+        console.debug("my vaults after push: ", this.$root.store.state.myVaults)
+        this.$nextTick(function () {
+        console.debug("In next tick");
+        this.$root.store.state.myVaults
+      })
+
         this.$root.store.actions.setKeepToVault(keep_obj, vaultId)
       },
       userVaults: function (arr_vaults) {
@@ -100,7 +119,10 @@
     computed: {
       myKeeps() {
         return this.$root.store.state.myKeeps
-      }
+      },
+      myVaults() {
+        return this.$root.store.state.myVaults
+      },
     }
   }
 

@@ -56,7 +56,10 @@
       },
 
       userHasVaults() {
-        return this.$root.store.actions.userHasVaults()
+        let route = this.$route.fullPath;
+        if (route == '/vaults') {return false;}
+        else{
+        return this.$root.store.actions.userHasVaults()}
       },
 
       showKeepsButton() {

@@ -10,6 +10,7 @@
             <div class="card-block">
               <h4 class="card-title">{{item.name}}</h4>
               <p class="card-text">{{item.description}}</p>
+              <p class="card-text">{{item._id}}</p>
               <!--List Keeps on Vault-->
               <ul>
                 <li v-for="(item, index) in item.keeps">
@@ -18,6 +19,7 @@
                 </li>
               </ul>
               <!--<a v-on:click="sendToKeep(myKeeps,item._id)" class="btn btn-primary">Vault Me.</a>-->
+              <router-link v-bind:to="'/vaults/'+item._id" class="btn btn-primary button">View</router-link>
             </div>
           </div>
         </div>
@@ -44,14 +46,14 @@
           if (element.userId == this.$root.store.state.user._id) { return true }
           else { return false }
         })
-        console.debug("out array: ", this.out_array)
+        //console.debug("out array: ", this.out_array)
         return this.out_array;
       },
 
 
     },
     mounted: function () {
-      console.log("Hello World.")
+      //console.log("Hello World.")
       this.$root.store.actions.flyerGetVaults(this.$route.params.id)
     },
     computed: {
@@ -81,9 +83,9 @@
     margin: 0 10px;
   }
   
-  a {
+  /*a {
     color: #42b983;
-  }
+  }*/
   
   .cardOutline {
     border: 1px solid black;

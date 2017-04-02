@@ -4,13 +4,21 @@
     <!--<h1>Hello</h1>-->
     <h1 class="loginMessage">{{$root.store.state.loginMessage}}</h1>
 
+<div class="frame">
+      <div class="tab-content">
+        <div id="home" class="tab-pane fade in active">
 
     <form>
-      <input class="inputField" v-model="email" placeholder="  e-mail"><br>
-      <input class="inputField" v-model="password" placeholder="  password"><br>
+      <input class="inputField col-xs-4" v-model="email" placeholder="  e-mail"><br>
+      <input class="inputField col-xs-4" v-model="password" placeholder="  password"><br>
       <button class="btn btn-primary button" type="submit" name="action" @click.prevent="login()">Submit</button>
+      <button class="btn btn-primary button" type="submit" name="action" @click.prevent="register()">Register</button>
       <button class="btn btn-primary button" type="submit" name="action" @click.prevent="guestLogin()">Guest Login</button>
     </form>
+
+    </div>
+    </div>
+    </div>
 
   </div>
 </template>
@@ -42,6 +50,10 @@
       guestLogin() {
         let login_object = {}
         this.$root.store.actions.guestLogin()
+      },
+      
+      register() {
+        this.$root.store.actions.sendToRegister()
       }
     },
     mounted: function () {
@@ -89,4 +101,6 @@
   .loginMessage {
     color: red
   }
+
+  .button{margin-top: 15px;}
 </style>

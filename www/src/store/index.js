@@ -59,8 +59,8 @@ export default {
         }).catch(handleError)
     },
 
-    guestLogin(){
-      state.user = {_id:'00000',name:' ', email:'guest',password:null}
+    guestLogin() {
+      state.user = { _id: '00000', name: ' ', email: 'guest', password: null }
       state.user.isGuest = true;
       router.push({ path: 'keeps/' })
     },
@@ -106,8 +106,8 @@ export default {
             .then(res => {
             }).catch(handleError)
         }).catch(handleError)
-      //router.push({ path: '/vaults/' })
       this.incrementVaults(keep_obj._id)
+      router.push({ path: '/vaults/' + vaultId })
     },
 
     sendToCurrentVault() {
@@ -128,7 +128,7 @@ export default {
       //console.debug("In Flyer Get Keep with: ", id)
       api.get('keeps/' + id)
         .then(res => {
-          console.debug("data returned: ", res)
+          //console.debug("data returned: ", res)
           state.myKeeps = res.data.data;
         }).catch(handleError)
     },
@@ -137,7 +137,7 @@ export default {
       //console.debug("In Flyer Get Valuts with: ", id)
       api.get('vaults/')
         .then(res => {
-          console.debug("data returned: ", res)
+          //console.debug("data returned: ", res)
           state.myVaults = res.data.data;
         }).catch(handleError)
     },
@@ -146,16 +146,17 @@ export default {
       //console.debug("In Flyer Get Valut with: ", id)
       api.get('vaults/' + id)
         .then(res => {
-          console.debug("data returned: ", res)
-          state.myVaults = res.data.data;
+          //console.debug("data returned: ", res)
+          state.myVaults = [];
+          state.myVaults.push(res.data.data);
         }).catch(handleError)
     },
 
     deleteVault(id) {
-      //console.debug("In store delete vault method with: ", id)
+      console.debug("In store delete vault method with: ", id)
       api.delete('vaults/' + id)
         .then(res => {
-          console.debug("data returned: ", res)
+          //console.debug("data returned: ", res)
           state.myVaults = res.data.data;
           router.push({ path: '/vaults/' })
         }).catch(handleError)
@@ -165,7 +166,7 @@ export default {
       //console.debug("In store delete keep method with: ", id)
       api.delete('keeps/' + id)
         .then(res => {
-          console.debug("data returned: ", res)
+          //console.debug("data returned: ", res)
           state.myVaults = res.data.data;
           router.push({ path: '/keeps/' })
         }).catch(handleError)
@@ -174,8 +175,8 @@ export default {
     incrementViews(id) {
       api.get('keeps/' + id)
         .then(res => {
-            let obj_keep = res.data.data
-            obj_keep.views = obj_keep.views + 1;
+          let obj_keep = res.data.data
+          obj_keep.views = obj_keep.views + 1;
           api.put('keeps/' + id, obj_keep)
             .then(res => {
             }).catch(handleError)
@@ -185,8 +186,8 @@ export default {
     incrementVaults(id) {
       api.get('keeps/' + id)
         .then(res => {
-            let obj_keep = res.data.data
-            obj_keep.timesVaulted = obj_keep.timesVaulted + 1;
+          let obj_keep = res.data.data
+          obj_keep.timesVaulted = obj_keep.timesVaulted + 1;
           api.put('keeps/' + id, obj_keep)
             .then(res => {
             }).catch(handleError)
@@ -194,17 +195,24 @@ export default {
     },
 
     userHasVaults() {
-        let vaults = state.myVaults;
-        let user = state.user;
-        console.debug("vaults", vaults)
-        console.debug("user", user)
-        for (var i = 0; i < vaults.length; i++)
-        {
-          let vault = vaults[i];
-          if (vault.userId == user._id)
-          {return true;}
-        }
-        return false;
+      let vaults = state.myVaults;
+      let user = state.user;
+      //console.debug("user has vaults: vaults", vaults)
+      //console.debug("user has vaults: user", user)
+      for (var i = 0; i < vaults.length; i++) {
+        let vault = vaults[i];
+        if (vault.userId == user._id)
+        { return true; }
+      }
+      return false;
+    },
+
+    sendToRegister() {
+      router.push("/register")
+    },
+
+    sendToLogin() {
+      router.push("/login")
     },
   }
 }
