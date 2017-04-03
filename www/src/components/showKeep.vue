@@ -5,7 +5,7 @@
     <ul id="publicKeeps" class="fb">
       <div class="card" style="">
         <div class="cardOutline">
-          <img class="card-img-top" :src=myKeeps.imageUrl width="90%" alt="Card image cap">
+          <img class="card-img-top" :src=myKeeps.imageUrl height="350vh" alt="Card image cap">
           <div class="card-block">
             <p class="card-text">{{myKeeps.tags}}</p>
             <!--{{myKeeps.userId}} {{$root.store.state.user._id}}-->

@@ -64,7 +64,9 @@
 
       showKeepsButton() {
         let route = this.$route.fullPath;
-        if (route == '/keeps') {return false;}
+        console.debug("route", route)
+        if (route == '/keeps/') {return false;}
+        else if (route == '/keeps') {return false;}
         else {return true;};
       },
 

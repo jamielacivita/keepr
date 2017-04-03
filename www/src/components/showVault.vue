@@ -1,6 +1,6 @@
 <template>
   <div class="keeps">
-    {{myVault[0]}}
+    <!--{{myVault[0]}}-->
     <h1>{{myVault[0].name}}</h1>
     <!--<div> Debug:  {{myVault}} </div>-->
     <div id="publicKeeps" class="fb">

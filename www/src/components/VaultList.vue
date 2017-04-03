@@ -10,7 +10,7 @@
             <div class="card-block">
               <h4 class="card-title">{{item.name}}</h4>
               <p class="card-text">{{item.description}}</p>
-              <p class="card-text">{{item._id}}</p>
+              <!--<p class="card-text">{{item._id}}</p>-->
               <!--List Keeps on Vault-->
               <ul>
                 <li v-for="(item, index) in item.keeps">

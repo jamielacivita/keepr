@@ -16,7 +16,7 @@ let base = axios.create({
 // REGISTER ALL DATA HERE
 let state = {
   loginMessage: '',
-  user: {},
+  user: {name:'',email:''},
   isGuest: false,
   myVaults: {},
   myKeeps: {},
@@ -48,9 +48,10 @@ export default {
     login(login_object) {
       base.post('login', login_object)
         .then(res => {
-          if (res.data.message == 'Invalid Email or Password') {
-            state.loginMessage = 'Invalid email or password.'
-          }
+          console.debug("res.data :", res.data)
+          // if (res.data.error.message == 'Invalid Email or Password') 
+          if (res.data.error) 
+          {state.loginMessage = 'Invalid email or password.'}
           else {
             state.user = res.data.data
             console.debug("state.user: ", state.user)
@@ -62,7 +63,7 @@ export default {
     guestLogin() {
       state.user = { _id: '00000', name: ' ', email: 'guest', password: null }
       state.user.isGuest = true;
-      router.push({ path: 'keeps/' })
+      router.push({ path: '/keeps/' })
     },
 
     createKeep(obj_keep) {
@@ -107,7 +108,8 @@ export default {
             }).catch(handleError)
         }).catch(handleError)
       this.incrementVaults(keep_obj._id)
-      router.push({ path: '/vaults/' + vaultId })
+      this.flyerGetVaults('')
+      router.push({ path: '/keeps/' })
     },
 
     sendToCurrentVault() {

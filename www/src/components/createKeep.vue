@@ -8,8 +8,8 @@
             <!-- Form Fields for Createing Keeps -->
             <input class="inputField" v-model="title" placeholder="  Title"><br>
             <input class="inputField" v-model="imageUrl" placeholder="  Image URL (Optional)"><br>
-            <input class="inputField" v-model="articleLink" placeholder="  Article Link"><br>
-            <input class="inputField" v-model="tags" placeholder="  Tags"><br>
+            <!--<input class="inputField" v-model="articleLink" placeholder="  Article Link"><br>-->
+            <!--<input class="inputField" v-model="tags" placeholder="  Tags"><br>-->
             <button class="btn btn-primary button" type="submit" name="action" @click.prevent="createKeep()">Submit</button>
           </form>
         </div>
